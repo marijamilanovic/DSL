@@ -4,7 +4,7 @@
 
 Program:
     'begin'
-      commands*=Command    // *= operator means zero or more matches.
+      menuSections*=MenuSections    // *= operator means zero or more matches.
       // commands will be
       // a list of command objects
     'end'
@@ -12,13 +12,46 @@ Program:
 
 // this is an example of abstract rule. command class will never be instantiated
 // in the model.
-Command:
-    InitialCommand | MoveCommand
+MenuSections:
+    Header | Dishes | Drinks
 ;
 
-InitialCommand:
-    'initial' x=INT ',' y=INT
+Header:
+	'Header' header_size=Size (header_color=Color)? ':' name=STRING
 ;
+
+Size:
+	'H1' | 'H2' | 'H3' | 'H4' | 'H5' | 'H6'
+;
+
+Color:
+	'black' | 'blue' | 'brown' | 'green' | 'grey' | 'orange' | 'pink' | 'purple' |'red' | 'white' |'yellow'
+;
+
+Style:
+    'Bold' | 'Italic' | 'Underline'
+;
+
+Dishes:
+    'Filter dish by type:' dish_type=DishType ';'
+	'Font size:' font_size=Size (color=Color)? ';'
+	'Font style:' (font_style=Style)?
+;
+
+DishType:
+	'MainDishes' | 'Appetizers' | 'HouseSpecials' | 'Soups' | 'Salads' | 'Desert' | 'FastingDishes'
+;
+
+Drinks:
+    'Filter drinks by type:' drink_type=DrinkType ';' 
+	'Font size:' font_size=Size (color=Color)? ';'
+	'Font style:' (font_style=Style)?
+;
+
+DrinkType:
+	'Alchocol' | 'Carbonated' | 'Juices' | 'HotDrinks'
+;
+
 
 MoveCommand:
     direction=Direction (steps=INT)?
