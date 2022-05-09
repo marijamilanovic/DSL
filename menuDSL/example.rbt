@@ -1,0 +1,44 @@
+begin
+    Section Food{
+        Header: "MainDishes";
+        Header style {
+            Font size:H3;
+            Font style:Italic;
+            Font color:red
+        }
+        Filter by type: MainDishes;
+        Item style {
+            Font size:H1;
+            Font style:Bold;
+            Font color:red
+        }
+        
+        Header: "Salads";
+        Header style {
+            Font size:H3;
+            Font style:Italic;
+            Font color:red
+        }
+        Filter by type: Salads;
+        Item style {
+            Font size:H1;
+            Font style:Bold;
+            Font color:red
+        }       
+    }
+
+    Section Drinks{
+        Header: "HotDrinks";
+        Header style {
+            Font size:H3;
+            Font style:Italic;
+            Font color:red
+        }
+        Filter by type: HotDrinks;
+        Item style {
+            Font size:H1;
+            Font style:Bold;
+            Font color:red
+        }
+    }
+end

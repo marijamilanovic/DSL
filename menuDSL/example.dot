@@ -1,0 +1,44 @@
+
+    digraph textX {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+2008319915584 -> 2008319912176 [label="menuSections:0" arrowtail=diamond dir=both]
+2008319912176 -> 2008319910976 [label="items:0" arrowtail=diamond dir=both]
+2008319910976 -> 2008319914000 [label="header" arrowtail=diamond dir=both]
+2008319914000 -> 2008319902672 [label="header_style" arrowtail=diamond dir=both]
+2008319902672[label="{:Style|+font_size:str='H3'\l+font_style:str='Italic'\l+color:str='red'\l}"]
+2008319914000[label="{MainDishes:Header|}"]
+2008319910976 -> 2008319911408 [label="item_style" arrowtail=diamond dir=both]
+2008319911408[label="{:Style|+font_size:str='H1'\l+font_style:str='Bold'\l+color:str='red'\l}"]
+2008319910976[label="{:Item|+type:str='MainDishes'\l}"]
+2008319912176 -> 2008319910736 [label="items:1" arrowtail=diamond dir=both]
+2008319910736 -> 2008319911552 [label="header" arrowtail=diamond dir=both]
+2008319911552 -> 2008319912416 [label="header_style" arrowtail=diamond dir=both]
+2008319912416[label="{:Style|+font_size:str='H3'\l+font_style:str='Italic'\l+color:str='red'\l}"]
+2008319911552[label="{Salads:Header|}"]
+2008319910736 -> 2008319912032 [label="item_style" arrowtail=diamond dir=both]
+2008319912032[label="{:Style|+font_size:str='H1'\l+font_style:str='Bold'\l+color:str='red'\l}"]
+2008319910736[label="{:Item|+type:str='Salads'\l}"]
+2008319912176[label="{:MenuSection|+section_type:str='Food'\l}"]
+2008319915584 -> 2008319911840 [label="menuSections:1" arrowtail=diamond dir=both]
+2008319911840 -> 2008319912560 [label="items:0" arrowtail=diamond dir=both]
+2008319912560 -> 2008319913616 [label="header" arrowtail=diamond dir=both]
+2008319913616 -> 2008319914816 [label="header_style" arrowtail=diamond dir=both]
+2008319914816[label="{:Style|+font_size:str='H3'\l+font_style:str='Italic'\l+color:str='red'\l}"]
+2008319913616[label="{HotDrinks:Header|}"]
+2008319912560 -> 2008319914384 [label="item_style" arrowtail=diamond dir=both]
+2008319914384[label="{:Style|+font_size:str='H1'\l+font_style:str='Bold'\l+color:str='red'\l}"]
+2008319912560[label="{:Item|+type:str='HotDrinks'\l}"]
+2008319911840[label="{:MenuSection|+section_type:str='Drinks'\l}"]
+2008319915584[label="{:Program|}"]
+
+}
