@@ -1,0 +1,55 @@
+
+    digraph textX {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+2651901295136[ label="{Program|}"]
+
+2651901289376[ label="{MenuSection|section_type: SectionType\l}"]
+
+2651901306656[ label="{Item|type: Type\lfont_size: Size\lcolor: Color\lfont_style: Style\l}"]
+
+2651901183776[ label="{Header|header_size: Size\lheader_color: Color\lheader_style: Style\lname: STRING\l}"]
+
+
+
+2651901295136 -> 2651901289376[arrowtail=diamond, dir=both, headlabel="menuSections 0..*"]
+2651901289376 -> 2651901306656[arrowtail=diamond, dir=both, headlabel="items 1..*"]
+2651901306656 -> 2651901183776[arrowtail=diamond, dir=both, headlabel="header "]
+match_rules [ shape=plaintext, label=< <table>
+	<tr>
+		<td><b>Color</b></td><td>black|blue|brown|green|grey|orange|pink|purple|red|white|yellow</td>
+	</tr>
+	<tr>
+		<td><b>Comment</b></td><td>\/\/.*$</td>
+	</tr>
+	<tr>
+		<td><b>DishType</b></td><td>MainDishes|Appetizers|HouseSpecials|Soups|Salads|Desert|FastingDishes</td>
+	</tr>
+	<tr>
+		<td><b>DrinkType</b></td><td>Alchocol|Carbonated|Juices|HotDrinks</td>
+	</tr>
+	<tr>
+		<td><b>SectionType</b></td><td>Food|Drinks</td>
+	</tr>
+	<tr>
+		<td><b>Size</b></td><td>H1|H2|H3|H4|H5|H6</td>
+	</tr>
+	<tr>
+		<td><b>Style</b></td><td>Bold|Italic|Underline</td>
+	</tr>
+	<tr>
+		<td><b>Type</b></td><td></td>
+	</tr>
+</table> >]
+
+
+}

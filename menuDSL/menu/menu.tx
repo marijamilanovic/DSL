@@ -4,7 +4,7 @@
 
 Program:
     'begin'
-      commands*=Command    // *= operator means zero or more matches.
+      menuSections*=MenuSection    // *= operator means zero or more matches.
       // commands will be
       // a list of command objects
     'end'
@@ -12,24 +12,59 @@ Program:
 
 // this is an example of abstract rule. command class will never be instantiated
 // in the model.
-Command:
-    InitialCommand | MoveCommand
+MenuSection:
+	'Section' section_type= SectionType '{'
+    items+=Item
+	'}'
 ;
 
-InitialCommand:
-    'initial' x=INT ',' y=INT
+SectionType:
+	'Food' | 'Drinks'
 ;
 
-MoveCommand:
-    direction=Direction (steps=INT)?
+Item:
+    header=Header
+	'Filter by type:' type=Type ';'
+	'Item style' '{'
+		item_style=Style
+	'}'
 ;
 
-// this is an example of a match rule
-// match rules has either string match, regex match or other match rule as
-// its alternatives (e.g. int, string... or some user match rule)
-// match rule is treated as a contained match. no class will get created.
-Direction:
-    "up"|"down"|"left"|"right"
+Type:
+	DishType | DrinkType
+;
+
+Header:
+	'Header:' name=STRING ';'
+	'Header style' '{'
+		header_style=Style
+	'}'
+;
+
+Size:
+	'H1' | 'H2' | 'H3' | 'H4' | 'H5' | 'H6'
+;
+
+Color:
+	'black' | 'blue' | 'brown' | 'green' | 'grey' | 'orange' | 'pink' | 'purple' |'red' | 'white' |'yellow'
+;
+
+Style:
+    'Font size:' (font_size=Size)? ';'
+	'Font style:' (font_style=FontStyle)? ';'
+	'Font color:' (color=Color)?
+;
+
+FontStyle:
+	'Bold' | 'Italic' | 'Underline'
+;
+
+DishType:
+	'MainDishes' | 'Appetizers' | 'HouseSpecials' | 'Soups' | 'Salads' | 'Desert' | 'FastingDishes'
+;
+
+DrinkType:
+	'Alchocol' | 'Carbonated' | 'Juices' | 'HotDrinks'
 ;
 
 // special rule for comments.
