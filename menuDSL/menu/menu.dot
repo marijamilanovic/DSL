@@ -11,19 +11,23 @@
     edge[dir=black,arrowtail=empty]
 
 
-2651901295136[ label="{Program|}"]
+1757461486464[ label="{Program|}"]
 
-2651901289376[ label="{MenuSection|section_type: SectionType\l}"]
+1757461461920[ label="{MenuSection|section_type: SectionType\l}"]
 
-2651901306656[ label="{Item|type: Type\lfont_size: Size\lcolor: Color\lfont_style: Style\l}"]
+1757461498736[ label="{Item|type: Type\l}"]
 
-2651901183776[ label="{Header|header_size: Size\lheader_color: Color\lheader_style: Style\lname: STRING\l}"]
+1757461501568[ label="{Header|name: STRING\l}"]
+
+1757461514784[ label="{Style|font_size: Size\lfont_style: FontStyle\lcolor: Color\l}"]
 
 
 
-2651901295136 -> 2651901289376[arrowtail=diamond, dir=both, headlabel="menuSections 0..*"]
-2651901289376 -> 2651901306656[arrowtail=diamond, dir=both, headlabel="items 1..*"]
-2651901306656 -> 2651901183776[arrowtail=diamond, dir=both, headlabel="header "]
+1757461486464 -> 1757461461920[arrowtail=diamond, dir=both, headlabel="menu_sections 0..*"]
+1757461461920 -> 1757461498736[arrowtail=diamond, dir=both, headlabel="items 1..*"]
+1757461498736 -> 1757461501568[arrowtail=diamond, dir=both, headlabel="header "]
+1757461498736 -> 1757461514784[arrowtail=diamond, dir=both, headlabel="item_style "]
+1757461501568 -> 1757461514784[arrowtail=diamond, dir=both, headlabel="header_style "]
 match_rules [ shape=plaintext, label=< <table>
 	<tr>
 		<td><b>Color</b></td><td>black|blue|brown|green|grey|orange|pink|purple|red|white|yellow</td>
@@ -38,13 +42,13 @@ match_rules [ shape=plaintext, label=< <table>
 		<td><b>DrinkType</b></td><td>Alchocol|Carbonated|Juices|HotDrinks</td>
 	</tr>
 	<tr>
+		<td><b>FontStyle</b></td><td>Bold|Italic|Underline</td>
+	</tr>
+	<tr>
 		<td><b>SectionType</b></td><td>Food|Drinks</td>
 	</tr>
 	<tr>
 		<td><b>Size</b></td><td>H1|H2|H3|H4|H5|H6</td>
-	</tr>
-	<tr>
-		<td><b>Style</b></td><td>Bold|Italic|Underline</td>
 	</tr>
 	<tr>
 		<td><b>Type</b></td><td></td>
