@@ -13,13 +13,13 @@ begin
             Font color:red
         }
         
-        Header: "Salads";
+        Header: "Soups";
         Header style {
             Font size:H3;
             Font style:Italic;
             Font color:red
         }
-        Filter by type: Salads;
+        Filter by type: Soups;
         Item style {
             Font size:H1;
             Font style:Bold;
