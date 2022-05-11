@@ -5,18 +5,19 @@ from textx.export import metamodel_export, model_export_to_file, model_export
 from io import StringIO
 import psycopg2
 from config import config
+from food import Food
+from ingredient import Ingredient
+from drink import Drink
 
 def get_meta_model():
     current_dir = dirname(__file__)
     my_metamodel = metamodel_from_file(join(current_dir + '\menu', 'menu.tx'), debug=False)
     return my_metamodel
 
-
 def get_model(file_name):
     my_metamodel = get_meta_model()
     model = my_metamodel.model_from_file(file_name)
     return model
-
 
 def export_meta_model():
     my_metamodel = get_meta_model()
@@ -45,7 +46,8 @@ def get_food_data_from_database(type):
         cur.execute("SELECT * FROM food WHERE food_type=%(food_type)s", {'food_type': type})
         rows = cur.fetchall()
         for row in rows:
-            print(row)
+            food = Food(row[0], row[1], row[2], row[3])
+            find_ingredients(food)
         
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
@@ -64,7 +66,37 @@ def get_drink_data_from_database(type):
         cur.execute("SELECT * FROM drink WHERE drink_type=%(drink_type)s", {'drink_type': type})
         rows = cur.fetchall()
         for row in rows:
-            print(row)
+            drink = Drink(row[0], row[1], row[2], row[3])
+            print('******************************')
+            print(drink.name)
+            
+        cur.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+
+def find_ingredients(food):
+    conn = None
+    try:
+        params = config()
+        conn = psycopg2.connect(**params)
+        cur = conn.cursor()
+        
+        cur.execute("SELECT * FROM food_ingredient WHERE food_id=%(food_id)s", {'food_id': food.id})
+        rows = cur.fetchall()
+       
+        for row in rows:
+            cur.execute("SELECT * FROM ingredient WHERE id=%(id)s", {'id': row[2]})
+            ingredients = cur.fetchall()
+            for i in ingredients:
+                food.add_ingredient(i)
+
+        print('******************************')
+        print(food.name)
+        for ingredient in food.ingredients:
+            print(ingredient)
 
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:

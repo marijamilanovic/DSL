@@ -19,11 +19,11 @@ ingredients = (
 )
 
 food = (
-    (100, 'pizza', 'MainDishes'),
-    (101, 'burger','MainDishes'),
-    (102, 'chicken with vegetables', 'MainDishes'),
-    (103, 'chicken soup', 'Soups'),
-    (104, 'pumkin soup', 'Soups'),
+    (100, 'pizza', 'MainDishes', 680),
+    (101, 'burger','MainDishes', 700),
+    (102, 'chicken with vegetables', 'MainDishes', 690),
+    (103, 'chicken soup', 'Soups', 350),
+    (104, 'pumkin soup', 'Soups', 370),
 )
 
 food_ingredients= (
@@ -33,17 +33,17 @@ food_ingredients= (
     (303, 100, 6),
     (304, 100, 2),
     (305, 101, 8),
-    (306, 100, 10),
-    (307, 100, 11),
-    (308, 100, 12),
+    (306, 101, 10),
+    (307, 101, 11),
+    (308, 101, 12),
 )
 
 drinks = (
-    (200, 'hot chocolate', 'HotDrinks'),
-    (201, 'coffe','HotDrinks'),
-    (202, 'apple juice', 'Juices'),
-    (203, 'tequila', 'Alchocol'),
-    (204, 'orange juice', 'Juices'),
+    (200, 'hot chocolate', 'HotDrinks', 210),
+    (201, 'coffe','HotDrinks', 150),
+    (202, 'apple juice', 'Juices', 190),
+    (203, 'tequila', 'Alchocol', 230),
+    (204, 'orange juice', 'Juices', 190),
 )
 
 def connect():
@@ -83,14 +83,14 @@ def connect():
 def create_tables(cur, conn):
     cur.execute("CREATE TYPE FoodType AS ENUM ('MainDishes', 'Appetizers', 'HouseSpecials','Soups', 'Salads', 'FastingDishes');")
     cur.execute("CREATE TYPE DrinkType AS ENUM ('Alchocol', 'Carbonated', 'Juices','HotDrinks');")
-    cur.execute("CREATE TABLE IF NOT EXISTS food(id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL, food_type FoodType)")
+    cur.execute("CREATE TABLE IF NOT EXISTS food(id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL, food_type FoodType, price INTEGER NOT NULL)")
     cur.execute("CREATE TABLE IF NOT EXISTS ingredient(id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL, fasting BOOLEAN)")
     cur.execute("CREATE TABLE IF NOT EXISTS food_ingredient(id SERIAL PRIMARY KEY,food_id integer REFERENCES food (id), ingredient_id integer REFERENCES ingredient (id) )")
-    cur.execute("CREATE TABLE IF NOT EXISTS drink(id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL, drink_type DrinkType)")
+    cur.execute("CREATE TABLE IF NOT EXISTS drink(id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL, drink_type DrinkType, price INTEGER NOT NULL)")
     conn.commit()
 
 def insert_data(cur, conn):
-    query_food = "INSERT INTO food (id, name, food_type) VALUES (%s, %s, %s)"
+    query_food = "INSERT INTO food (id, name, food_type, price) VALUES (%s, %s, %s, %s)"
     cur.executemany(query_food, food)
     conn.commit()
         
@@ -98,7 +98,7 @@ def insert_data(cur, conn):
     cur.executemany(query_ingredient, ingredients)
     conn.commit()
 
-    query_drink = "INSERT INTO drink (id, name, drink_type) VALUES (%s, %s, %s)"
+    query_drink = "INSERT INTO drink (id, name, drink_type, price) VALUES (%s, %s, %s, %s)"
     cur.executemany(query_drink, drinks)
     conn.commit()
 
