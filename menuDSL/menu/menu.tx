@@ -4,7 +4,7 @@
 
 Program:
     'begin'
-      menuSections*=MenuSection    // *= operator means zero or more matches.
+      menu_sections*=MenuSection    // *= operator means zero or more matches.
       // commands will be
       // a list of command objects
     'end'
@@ -13,8 +13,8 @@ Program:
 // this is an example of abstract rule. command class will never be instantiated
 // in the model.
 MenuSection:
-	'Section' section_type= SectionType '{'
-    items+=Item
+	'Section' section_type = SectionType '{'
+    	items+=Item
 	'}'
 ;
 

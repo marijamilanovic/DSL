@@ -1,6 +1,6 @@
 from os import mkdir
 from os.path import join, dirname, exists
-from textx import metamodel_from_file
+from textx import metamodel_from_file, metamodel_for_language, register_language
 from textx.export import metamodel_export, model_export_to_file, model_export
 from io import StringIO
 import psycopg2
@@ -26,10 +26,23 @@ def export_meta_model():
 def export_example_model():
     my_model = get_model('example.rbt')
     model_export(my_model, 'example.dot')
+    return my_model
+
+class Menu:
+    def __init__(self, menu_sections=None):
+        self.menu_sections = menu_sections
+
+    def interpret(self, model):
+        #print(model.menu_sections[0].items[0].type)
+        for m in model.menu_sections:
+            #print(m.__class__.__name__)
+            #print(m.section_type)
+            for item in m.items:
+                print(item.type)
 
 def get_data_from_database():
     my_model = get_model('example.rbt')
-    for menu_section in my_model.menuSections:
+    for menu_section in my_model.menu_sections:
         for item in menu_section.items:
             if menu_section.section_type == 'Food':
                 get_food_data_from_database(item.type)
@@ -107,5 +120,8 @@ def find_ingredients(food):
 
 if __name__ == "__main__":
     export_meta_model()
-    export_example_model()
     get_data_from_database()
+    my_model = export_example_model()
+    menu = Menu()
+    menu.interpret(my_model)
+
