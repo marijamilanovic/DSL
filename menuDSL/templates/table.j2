@@ -1,0 +1,24 @@
+<h3> {{title}} </h3>
+<table >
+    <tr>
+    {% for colname in col_names%}
+        <th> {{colname}} </th>
+    {% endfor %}  
+    </tr>  
+    {% for row in arranged_table %}
+    {% if numRow == None %}
+    <tr>
+        <td>{{row.name}}</td>
+        <td>{{row.price}}</td>
+    </tr>
+    {% elif loop.index <= numRow %}
+    <tr>
+        {% for column in row %}
+        <td>{{column}}</td>
+        {% endfor %}
+    </tr>
+    {% endif %}
+    {% endfor %}   
+</table>
+<br>
+<br>

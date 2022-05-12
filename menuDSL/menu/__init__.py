@@ -1,7 +1,7 @@
 import os
 from textx import language, metamodel_from_file
 from textx import generator as file_generator
-from .generator import generate
+from .interpreter import generate
 
 __version__ = "0.1.0.dev"
 

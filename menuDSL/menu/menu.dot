@@ -11,23 +11,23 @@
     edge[dir=black,arrowtail=empty]
 
 
-2495279768432[ label="{Program|}"]
+2637726313648[ label="{Program|}"]
 
-2495279787632[ label="{MenuSection|section_type: SectionType\l}"]
+2637726286768[ label="{MenuSection|section_type: SectionType\l}"]
 
-2495279780912[ label="{Item|type: Type\l}"]
+2637726328048[ label="{Item|type: Type\l}"]
 
-2495279779952[ label="{Header|name: STRING\l}"]
+2637726320368[ label="{Header|name: STRING\l}"]
 
-2495279796272[ label="{Style|font_size: Size\lfont_style: FontStyle\lcolor: Color\l}"]
+2637726347248[ label="{Style|font_size: Size\lfont_style: FontStyle\lcolor: Color\l}"]
 
 
 
-2495279768432 -> 2495279787632[arrowtail=diamond, dir=both, headlabel="menu_sections 0..*"]
-2495279787632 -> 2495279780912[arrowtail=diamond, dir=both, headlabel="items 1..*"]
-2495279780912 -> 2495279779952[arrowtail=diamond, dir=both, headlabel="header "]
-2495279780912 -> 2495279796272[arrowtail=diamond, dir=both, headlabel="item_style "]
-2495279779952 -> 2495279796272[arrowtail=diamond, dir=both, headlabel="header_style "]
+2637726313648 -> 2637726286768[arrowtail=diamond, dir=both, headlabel="menu_sections 0..*"]
+2637726286768 -> 2637726328048[arrowtail=diamond, dir=both, headlabel="items 1..*"]
+2637726328048 -> 2637726320368[arrowtail=diamond, dir=both, headlabel="header "]
+2637726328048 -> 2637726347248[arrowtail=diamond, dir=both, headlabel="item_style "]
+2637726320368 -> 2637726347248[arrowtail=diamond, dir=both, headlabel="header_style "]
 match_rules [ shape=plaintext, label=< <table>
 	<tr>
 		<td><b>Color</b></td><td>black|blue|brown|green|grey|orange|pink|purple|red|white|yellow</td>
