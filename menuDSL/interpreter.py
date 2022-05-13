@@ -157,41 +157,53 @@ def generate(model, outuput_dir):
     output_folder.close()
 
 def parse_table(output_folder):
-    # Za sada ovako, mozda enkapsulirati promenljive u klasu Tabela?
-    numRow = None
-    titles = []
     col_names = ['Name', 'Price']
-    sections = []
     main_dishes = []
     soups = []
     hot_drinks = []
-    ingredients = []
-    header_style = []
-    item_style = []
-
+    appetizers = []
+    house_specials = []
+    salads = []
+    deserts = []
+    alchocols = []
+    carbonateds = []
+    juices = []
+    items = []
     for menu_section in my_model.menu_sections:
         sections = my_model.menu_sections
         for item in menu_section.items:
-            titles.append(item.header)
-            header_style.append(item.header.header_style)
-            item_style.append(item.item_style)
+            items.append(item)
 
-    food_data = get_food_data_from_database()   #food lista
-    drink_data = get_drink_data_from_database()   #drink lista
+    food_data = get_food_data_from_database() 
+    drink_data = get_drink_data_from_database()  
     for food in food_data:
         if food.food_type == 'MainDishes':
             main_dishes.append(food)
         elif food.food_type == 'Soups':
             soups.append(food)
+        elif food.food_type == 'Appetizers':
+            appetizers.append(food)
+        elif food.food_type == 'HouseSpecials':
+            house_specials.append(food)
+        elif food.food_type == 'Salads':
+            salads.append(food)
+        else:
+            deserts.append(food)
     
     for drink in drink_data:
         if drink.drink_type == 'HotDrinks':
             hot_drinks.append(drink)
+        elif drink.drink_type == 'Alchocol':
+            alchocols.append(drink)
+        elif drink.drink_type == 'Carbonated':
+            carbonateds.append(drink)
+        else:
+            juices.append(drink)
     
     template = jinja_env.get_template('table.j2')
-    output_folder.write(template.render( numRow=numRow,sections = sections, titles=titles, col_names=col_names,
-    main_dishes = main_dishes , soups = soups,  hot_drinks = hot_drinks, header_style = header_style,
-    item_style = item_style))
+    output_folder.write(template.render(sections = sections, col_names=col_names, items = items, main_dishes = main_dishes , 
+    soups = soups, salads = salads, appetizers = appetizers, deserts = deserts, house_specials = house_specials,
+    hot_drinks = hot_drinks, juices = juices, alchocols = alchocols, carbonateds = carbonateds))
 
 
 if __name__ == "__main__":
