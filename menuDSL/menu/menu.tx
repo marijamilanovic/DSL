@@ -24,7 +24,7 @@ SectionType:
 
 Item:
     header=Header
-	'Filter by type:' type=Type ';'
+	'Filter by type:' type = Type ';'
 	'Item style' '{'
 		item_style=Style
 	'}'

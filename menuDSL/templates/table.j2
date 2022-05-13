@@ -1,24 +1,51 @@
-<h3> {{title}} </h3>
+{% if main_dishes %}
 <table >
-    <tr>
+  <h3> {{titles[0].name}} </h3>
+  <tr style="text-align: left; height:30px; ">
     {% for colname in col_names%}
-        <th> {{colname}} </th>
+        <th style=" padding: 10px;"> {{colname}} </th>
     {% endfor %}  
-    </tr>  
-    {% for row in arranged_table %}
-    {% if numRow == None %}
-    <tr>
-        <td>{{row.name}}</td>
-        <td>{{row.price}}</td>
-    </tr>
-    {% elif loop.index <= numRow %}
-    <tr>
-        {% for column in row %}
-        <td>{{column}}</td>
-        {% endfor %}
-    </tr>
-    {% endif %}
-    {% endfor %}   
+    </tr> 
+  {% for food in main_dishes %} 
+  <tr>
+    <td style=" padding: 10px;">{{food.name}}</td>
+    <td style=" padding: 10px;">{{food.price}}</td>
+  </tr>
+{% endfor %}
 </table>
-<br>
-<br>
+{% endif %}
+
+{% if soups %}
+<h3> {{titles[1].name}} </h3>
+<table>
+  <tr style="text-align: left; height:30px;">
+    {% for colname in col_names%}
+        <th style=" padding: 10px;"> {{colname}} </th>
+    {% endfor %}  
+    </tr>
+{% for soup in soups %} 
+  <tr>
+    <td style=" padding: 10px;">{{soup.name}}</td>
+    <td style=" padding: 10px;">{{soup.price}}</td>
+  </tr>
+{% endfor %} 
+</table>
+{% endif %}
+
+{% if hot_drinks %}
+<table >
+  <h3> {{titles[2].name}} </h3>
+  <tr style="text-align: left; height:30px;">
+    {% for colname in col_names%}
+        <th style=" padding: 10px;"> {{colname}} </th>
+    {% endfor %}  
+    </tr>
+{% for drink in hot_drinks %} 
+  <tr>
+    <td style=" padding: 10px;">{{drink.name}}</td>
+    <td style=" padding: 10px;">{{drink.price}}</td>
+  </tr>
+{% endfor %} 
+</table>
+{% endif %}
+

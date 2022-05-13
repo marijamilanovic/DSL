@@ -48,20 +48,29 @@ class Menu:
             for item in m.items:
                 print(item.type)
 
-def get_data_from_database():
+def get_food_data_from_database():
     my_model = get_model('example.rbt')
     all_food = []
     for menu_section in my_model.menu_sections:
         for item in menu_section.items:
             if menu_section.section_type == 'Food':
-                food = get_food_data_from_database(item.type)  #lista filtrirane hrane
+                food = find_food_data_from_database(item.type)  #lista filtrirane hrane
                 for f in food:
                     all_food.append(f)
-            else:
-                get_drink_data_from_database(item.type)
     return all_food
 
-def get_food_data_from_database(type):
+def get_drink_data_from_database():
+    my_model = get_model('example.rbt')
+    all_drinks = []
+    for menu_section in my_model.menu_sections:
+        for item in menu_section.items:
+            if menu_section.section_type == 'Drinks':
+                drinks = find_drink_data_from_database(item.type)
+                for drink in drinks:
+                    all_drinks.append(drink)
+    return all_drinks
+
+def find_food_data_from_database(type):
     conn = None
     foods = []
     try:
@@ -85,8 +94,9 @@ def get_food_data_from_database(type):
 
     return foods
 
-def get_drink_data_from_database(type):
+def find_drink_data_from_database(type):
     conn = None
+    drinks = []
     try:
         params = config()
         conn = psycopg2.connect(**params)
@@ -94,8 +104,10 @@ def get_drink_data_from_database(type):
         
         cur.execute("SELECT * FROM drink WHERE drink_type=%(drink_type)s", {'drink_type': type})
         rows = cur.fetchall()
+
         for row in rows:
             drink = Drink(row[0], row[1], row[2], row[3])
+            drinks.append(drink)
             
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
@@ -103,6 +115,8 @@ def get_drink_data_from_database(type):
     finally:
         if conn is not None:
             conn.close()
+
+    return drinks
 
 def find_ingredients(food):
     conn = None
@@ -145,29 +159,39 @@ def generate(model, outuput_dir):
 def parse_table(output_folder):
     # Za sada ovako, mozda enkapsulirati promenljive u klasu Tabela?
     numRow = None
-    title = None
+    titles = []
     col_names = ['Name', 'Price']
-    
+    sections = []
+    main_dishes = []
+    soups = []
+    hot_drinks = []
+    ingredients = []
     for menu_section in my_model.menu_sections:
+        sections = my_model.menu_sections
         for item in menu_section.items:
-            title = item.header
+            titles.append(item.header)
 
-    table_data = get_data_from_database()   #food lista
-    for data in table_data:
-        ingredients = find_ingredients(data)
-        print(len(ingredients))
+    food_data = get_food_data_from_database()   #food lista
+    drink_data = get_drink_data_from_database()   #drink lista
+    for food in food_data:
+        ingredients = find_ingredients(food)
+        if food.food_type == 'MainDishes':
+            main_dishes.append(food)
+        elif food.food_type == 'Soups':
+            soups.append(food)
     
-    print('**********************')
-    for i in ingredients:
-        print(i)
+    for drink in drink_data:
+        if drink.drink_type == 'HotDrinks':
+            hot_drinks.append(drink)
     
     template = jinja_env.get_template('table.j2')
-    output_folder.write(template.render( numRow=numRow, title=title.name, col_names=col_names, arranged_table=table_data, ingredients = ingredients))
+    output_folder.write(template.render( numRow=numRow,sections = sections, titles=titles, col_names=col_names,
+    main_dishes = main_dishes , soups = soups,ingredients = ingredients,  hot_drinks = hot_drinks))
 
 
 if __name__ == "__main__":
     export_meta_model()
-    get_data_from_database()
+    #get_food_data_from_database()
     my_model = export_example_model()
     menu = Menu()
     menu.interpret(my_model)
