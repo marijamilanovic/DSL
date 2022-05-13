@@ -1,20 +1,25 @@
 {% if main_dishes %}
 <table >
-  <h3> {{titles[0].name}} </h3>
+  <{{ header_style[0].font_size}} style = "color: {{ header_style[0].color }};"> {{titles[0].name}} </{{header_style[0].font_size}}>
   <tr style="text-align: left; height:30px; ">
     {% for colname in col_names%}
         <th style=" padding: 10px;"> {{colname}} </th>
     {% endfor %}  
     </tr> 
   {% for food in main_dishes %} 
-  <tr>
-    <td style=" padding: 10px;">{{food.name}}
+  <tr style="color: {{ item_style[0].color}};">
+    {% if item_style[0].font_style == 'bold' %}
+    <td style=" padding: 10px; "><b>{{food.name}}
+    {% else %}
+    <td style=" padding: 10px; color: {{ item_style[0].color}}; font-style: {{ item_style[0].font_style}};">{{food.name}}
+    {% endif %}
     <br>
     {{ '('}}
     {% for ingredient in food.ingredients %}
       <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
     {% endfor %}
     {{ ')'}}
+    </b>
     </br>
     </td>
     <td style=" padding: 10px;">{{food.price}}</td>
@@ -24,7 +29,7 @@
 {% endif %}
 
 {% if soups %}
-<h3> {{titles[1].name}} </h3>
+<{{ header_style[1].font_size}} style = "color: {{ header_style[1].color }};"> {{titles[1].name}} </{{ header_style[1].font_size}}>
 <table>
   <tr style="text-align: left; height:30px;">
     {% for colname in col_names%}
@@ -32,8 +37,12 @@
     {% endfor %}  
     </tr>
 {% for soup in soups %} 
-  <tr>
-    <td style=" padding: 10px;">{{soup.name}}
+  <tr style = "color: {{ item_style[1].color}};">
+    {% if item_style[1].font_style == 'bold' %}
+    <td style=" padding: 10px;"><b>{{soup.name}}
+    {% else %}
+    <td style=" padding: 10px; font-style: {{ item_style[1].font_style}};">{{soup.name}}
+    {% endif %}
     <br>
     {{ '('}}
     {% for ingredient in soup.ingredients %}
@@ -41,6 +50,7 @@
     {% endfor %}
     {{ ')'}}
     </br>
+    </b>
     </td>
     <td style=" padding: 10px;">{{soup.price}}</td>
   </tr>
@@ -50,16 +60,21 @@
 
 {% if hot_drinks %}
 <table >
-  <h3> {{titles[2].name}} </h3>
+  <{{ header_style[2].font_size}} style = "color: {{ header_style[2].color }};"> {{titles[2].name}} </{{ header_style[2].font_size}}>
   <tr style="text-align: left; height:30px;">
     {% for colname in col_names%}
         <th style=" padding: 10px;"> {{colname}} </th>
     {% endfor %}  
     </tr>
 {% for drink in hot_drinks %} 
-  <tr>
-    <td style=" padding: 10px;">{{drink.name}}</td>
-    <td style=" padding: 10px;">{{drink.price}}</td>
+  <tr style="color: {{ item_style[2].color}};">
+    {% if item_style[2].font_style == 'bold' %}
+    <td style=" padding: 10px; font-size:: {{ item_style[2].font_size}};"> <b>{{drink.name}}</td>
+    <td style=" padding: 10px;">{{drink.price}} </b></td>
+    {% else %}
+    <td style=" padding: 10px; color: {{ item_style[2].color}}; font-style: {{ item_style[2].font_style}};">{{drink.name}}
+    <td style=" padding: 10px; font-style: {{ item_style[2].font_style}};">{{drink.price}}</td>
+    {% endif %}
   </tr>
 {% endfor %} 
 </table>

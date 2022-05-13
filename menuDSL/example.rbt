@@ -2,28 +2,28 @@ begin
     Section Food{
         Header: "MainDishes";
         Header style {
-            Font size:H3;
-            Font style:Italic;
+            Font size:H1;
+            Font style:italic;
             Font color:red
         }
         Filter by type: MainDishes;
         Item style {
             Font size:H1;
-            Font style:Bold;
-            Font color:red
+            Font style:italic;
+            Font color:blue
         }
         
         Header: "Soups";
         Header style {
-            Font size:H3;
-            Font style:Italic;
-            Font color:red
+            Font size:H2;
+            Font style:italic;
+            Font color:blue
         }
         Filter by type: Soups;
         Item style {
-            Font size:H1;
-            Font style:Bold;
-            Font color:red
+            Font size:H4;
+            Font style:bold;
+            Font color:orange
         }       
     }
 
@@ -31,13 +31,13 @@ begin
         Header: "HotDrinks";
         Header style {
             Font size:H3;
-            Font style:Italic;
-            Font color:red
+            Font style:italic;
+            Font color:green
         }
         Filter by type: HotDrinks;
         Item style {
-            Font size:H1;
-            Font style:Bold;
+            Font size:H5;
+            Font style:bold;
             Font color:red
         }
     }

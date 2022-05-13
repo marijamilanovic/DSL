@@ -56,7 +56,7 @@ Style:
 ;
 
 FontStyle:
-	'Bold' | 'Italic' | 'Underline'
+	'bold' | 'italic' | 'underline'
 ;
 
 DishType:

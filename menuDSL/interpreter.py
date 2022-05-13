@@ -166,10 +166,15 @@ def parse_table(output_folder):
     soups = []
     hot_drinks = []
     ingredients = []
+    header_style = []
+    item_style = []
+
     for menu_section in my_model.menu_sections:
         sections = my_model.menu_sections
         for item in menu_section.items:
             titles.append(item.header)
+            header_style.append(item.header.header_style)
+            item_style.append(item.item_style)
 
     food_data = get_food_data_from_database()   #food lista
     drink_data = get_drink_data_from_database()   #drink lista
@@ -185,7 +190,8 @@ def parse_table(output_folder):
     
     template = jinja_env.get_template('table.j2')
     output_folder.write(template.render( numRow=numRow,sections = sections, titles=titles, col_names=col_names,
-    main_dishes = main_dishes , soups = soups,  hot_drinks = hot_drinks))
+    main_dishes = main_dishes , soups = soups,  hot_drinks = hot_drinks, header_style = header_style,
+    item_style = item_style))
 
 
 if __name__ == "__main__":
