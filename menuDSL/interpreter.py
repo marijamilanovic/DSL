@@ -174,7 +174,6 @@ def parse_table(output_folder):
     food_data = get_food_data_from_database()   #food lista
     drink_data = get_drink_data_from_database()   #drink lista
     for food in food_data:
-        ingredients = find_ingredients(food)
         if food.food_type == 'MainDishes':
             main_dishes.append(food)
         elif food.food_type == 'Soups':
@@ -186,7 +185,7 @@ def parse_table(output_folder):
     
     template = jinja_env.get_template('table.j2')
     output_folder.write(template.render( numRow=numRow,sections = sections, titles=titles, col_names=col_names,
-    main_dishes = main_dishes , soups = soups,ingredients = ingredients,  hot_drinks = hot_drinks))
+    main_dishes = main_dishes , soups = soups,  hot_drinks = hot_drinks))
 
 
 if __name__ == "__main__":
