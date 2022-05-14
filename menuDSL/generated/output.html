@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script src="https://cdn.rawgit.com/google/palette.js/master/palette.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <style>
 table, th, td {
   border: 1px solid black;
@@ -15,112 +14,116 @@ table, th, td {
 </head>
 <body>
 
-</body>        <H1 style = "color: red; font-style: italic">
+
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script src="https://cdn.rawgit.com/google/palette.js/master/palette.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.reportGraph {width:900px}
+</style>
+</head>
+<body>
+
+    <div class="card" style="width: 80rem;margin: 0 auto; float: none; margin-bottom: 10px;">
+    <div class="card-header">
+        <H1 style = "color: red; font-style: italic">
             MainDishes 
         </H1>
-
-<table>
-    <tr style="text-align: left; height:30px;">
-            <th style=" padding: 10px;"> Name </th>
-            <th style=" padding: 10px;"> Price </th>
-  
-    </tr>
-
-            <tr style="color: blue;">
-                <td style=" padding: 10px; "><b>pizza
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="color: blue; font-style: italic;"">pizza
+                <span style="float:right;"> 680 </span> 
                 <br>
                 (
-                <p style="display:inline-block"> ketchup ,</p>
-                <p style="display:inline-block"> mashrooms ,</p>
-                <p style="display:inline-block"> ham ,</p>
-                <p style="display:inline-block"> olives ,</p>
-                <p style="display:inline-block"> cheese ,</p>
+                    <p style="display:inline-block"> ketchup ,</p>
+                    <p style="display:inline-block"> mashrooms ,</p>
+                    <p style="display:inline-block"> ham ,</p>
+                    <p style="display:inline-block"> olives ,</p>
+                    <p style="display:inline-block"> cheese ,</p>
                 )
-                </b>
                 </br>
-                </td>
-                <td style=" padding: 10px; font-style: bold; "> <b>680</b></td>
-            </tr>
-            <tr style="color: blue;">
-                <td style=" padding: 10px; "><b>burger
+            </li> 
+     
+            <li class="list-group-item" style="color: blue; font-style: italic;"">burger
+                <span style="float:right;"> 700 </span> 
                 <br>
                 (
-                <p style="display:inline-block"> burger sauce ,</p>
-                <p style="display:inline-block"> pork ,</p>
-                <p style="display:inline-block"> ketchup ,</p>
-                <p style="display:inline-block"> bread ,</p>
+                    <p style="display:inline-block"> burger sauce ,</p>
+                    <p style="display:inline-block"> pork ,</p>
+                    <p style="display:inline-block"> ketchup ,</p>
+                    <p style="display:inline-block"> bread ,</p>
                 )
-                </b>
                 </br>
-                </td>
-                <td style=" padding: 10px; font-style: bold; "> <b>700</b></td>
-            </tr>
-            <tr style="color: blue;">
-                <td style=" padding: 10px; "><b>chicken with vegetables
+            </li> 
+     
+            <li class="list-group-item" style="color: blue; font-style: italic;"">chicken with vegetables
+                <span style="float:right;"> 690 </span> 
                 <br>
                 (
                 )
-                </b>
                 </br>
-                </td>
-                <td style=" padding: 10px; font-style: bold; "> <b>690</b></td>
-            </tr>
+            </li> 
+     
+        </ul>
 
-</table>
+    </div>
+    </div>
+    <div class="card" style="width: 80rem;margin: 0 auto; float: none; margin-bottom: 10px;">
+    <div class="card-header">
         <H2 style = "color: blue;">
             <b>Soups</b>
         </H2>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item " style="color: orange;"><b>chicken soup
+                <span style="float:right; "> 350 </span> 
+                <br>
+                (
+                )
+                </br>
+            </li></b>    
+     
+            <li class="list-group-item " style="color: orange;"><b>pumkin soup
+                <span style="float:right; "> 370 </span> 
+                <br>
+                (
+                )
+                </br>
+            </li></b>    
+     
+        </ul>
 
-<table>
-    <tr style="text-align: left; height:30px;">
-            <th style=" padding: 10px;"> Name </th>
-            <th style=" padding: 10px;"> Price </th>
-  
-    </tr>
-
-        <tr style="color: orange;">
-                    <td style=" padding: 10px; color: orange; font-style: italic;">chicken soup
-                    <br>
-                    (
-                    )
-                    </b>
-                    </br>
-                    </td>
-                <td style=" padding: 10px; font-style: italic; ">350</td>
-                </tr>
-        <tr style="color: orange;">
-                    <td style=" padding: 10px; color: orange; font-style: italic;">pumkin soup
-                    <br>
-                    (
-                    )
-                    </b>
-                    </br>
-                    </td>
-                <td style=" padding: 10px; font-style: italic; ">370</td>
-                </tr>
-
-</table>
+    </div>
+    </div>
+    <div class="card" style="width: 80rem;margin: 0 auto; float: none; margin-bottom: 10px;">
+    <div class="card-header">
         <H3 style = "color: green; font-style: italic">
             HotDrinks 
         </H3>
-
-<table>
-    <tr style="text-align: left; height:30px;">
-            <th style=" padding: 10px;"> Name </th>
-            <th style=" padding: 10px;"> Price </th>
-  
-    </tr>
-
+    </div>
+    <div class="card-body">
+    <ul class="list-group list-group-flush">
  
-            <tr style="color: red;">
-                <td style=" padding: 10px; font-size:: H5;"> <b>hot chocolate </b></td>
-                <td style=" padding: 10px;"> <b>210 </b></td>
-            </tr>
+            <li class="list-group-item " style="color: red;"><b>hot chocolate
+                <span style="float:right; "> 210 </span> 
+            </li></b>    
  
-            <tr style="color: red;">
-                <td style=" padding: 10px; font-size:: H5;"> <b>coffe </b></td>
-                <td style=" padding: 10px;"> <b>150 </b></td>
-            </tr>
+            <li class="list-group-item " style="color: red;"><b>coffe
+                <span style="float:right; "> 150 </span> 
+            </li></b>    
+    </ul>
 
-</table>
+    </div>
+    </div>
 
+
+</body>

@@ -1,224 +1,256 @@
+{% extends 'header_html.j2' %}
+{% block body %}
+
 {% for item in items %}
-    {% if item.header.header_style.font_style  == 'bold' %}
+    <div class="card" style="width: 80rem;margin: 0 auto; float: none; margin-bottom: 10px;">
+    <div class="card-header">
+        {% if item.header.header_style.font_style  == 'bold' %}
         <{{ item.header.header_style.font_size}} style = "color: {{ item.header.header_style.color }};">
             <b>{{item.header.name}}</b>
         </{{item.header.header_style.font_size}}>
-    {% else %}
+        {% else %}
         <{{ item.header.header_style.font_size}} style = "color: {{ item.header.header_style.color }}; font-style: {{item.header.header_style.font_style}}">
             {{item.header.name}} 
         </{{item.header.header_style.font_size}}>
-    {% endif %}
-
-<table>
-    <tr style="text-align: left; height:30px;">
-        {% for colname in col_names%}
-            <th style=" padding: 10px;"> {{colname}} </th>
-        {% endfor %}  
-    </tr>
-
-    {% if item.type == 'MainDishes' %}
+        {% endif %}
+    </div>
+    <div class="card-body">
+        {% if item.type == 'MainDishes' %}
+        <ul class="list-group list-group-flush">
         {% for food in main_dishes %}
-            <tr style="color: {{ item.item_style.color}};">
             {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; "><b>{{food.name}}
-            {% else %}
-                <td style=" padding: 10px; color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{food.name}}
-            {% endif %}
+            <li class="list-group-item " style="color: {{ item.item_style.color}};"><b>{{ food.name}}
+                <span style="float:right; "> {{food.price}} </span> 
                 <br>
                 {{ '('}}
-            {% for ingredient in food.ingredients %}
-                <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
-            {% endfor %}
+                {% for ingredient in food.ingredients %}
+                    <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
+                {% endfor %}
                 {{ ')'}}
-                </b>
                 </br>
-                </td>
-            {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}}; "> <b>{{food.price}}</b></td>
+            </li></b>    
             {% else %}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}}; ">{{food.price}}</td>
-            {% endif %}
-            </tr>
+            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};"">{{ food.name}}
+                <span style="float:right;"> {{food.price}} </span> 
+                <br>
+                {{ '('}}
+                {% for ingredient in food.ingredients %}
+                    <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
+                {% endfor %}
+                {{ ')'}}
+                </br>
+            </li> 
+            {% endif %}     
         {% endfor %}
+        </ul>
 
     {% elif item.type == 'Soups'%}
+        <ul class="list-group list-group-flush">
         {% for soup in soups %}
-        <tr style="color: {{ item.item_style.color}};">
-                {% if item.item_style.font_style == 'bold' %}
-                    <td style=" padding: 10px; "><b>{{soup.name}}
-                {% else %}
-                    <td style=" padding: 10px; color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{soup.name}}
-                {% endif %}
-                    <br>
-                    {{ '('}}
+        {% if item.item_style.font_style == 'bold' %}
+            <li class="list-group-item " style="color: {{ item.item_style.color}};"><b>{{ soup.name}}
+                <span style="float:right; "> {{soup.price}} </span> 
+                <br>
+                {{ '('}}
                 {% for ingredient in soup.ingredients %}
                     <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
                 {% endfor %}
-                    {{ ')'}}
-                    </b>
-                    </br>
-                    </td>
-                    {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}}; "> <b>{{soup.price}}</b></td>
+                {{ ')'}}
+                </br>
+            </li></b>    
             {% else %}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}}; ">{{soup.price}}</td>
-            {% endif %}
-                </tr>
-        {% endfor %}
-
-    {% elif item.type == 'Salads' %}
-        {% for salad in salads %}
-            <tr style="color: {{ item.item_style.color}};">
-            {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; "><b>{{salad.name}}
-            {% else %}
-                <td style=" padding: 10px; color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{salad.name}}
-            {% endif %}
+            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};"">{{ soup.name}}
+                <span style="float:right;"> {{soup.price}} </span> 
                 <br>
                 {{ '('}}
-            {% for ingredient in salad.ingredients %}
-                <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
-            {% endfor %}
+                {% for ingredient in soup.ingredients %}
+                    <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
+                {% endfor %}
                 {{ ')'}}
-                </b>
                 </br>
-                </td>
-            {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}}; "> <b>{{salad.price}}</b></td>
-            {% else %}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}}; ">{{salad.price}}</td>
-            {% endif %}
-            </tr>
+            </li> 
+            {% endif %}     
         {% endfor %}
+        </ul>
+
+    {% elif item.type == 'Salads' %}
+    <ul class="list-group list-group-flush">
+        {% for salad in salads %}
+            {% if item.item_style.font_style == 'bold' %}
+            <li class="list-group-item " style="color: {{ item.item_style.color}};"><b>{{ salad.name}}
+                <span style="float:right; "> {{salad.price}} </span> 
+                <br>
+                {{ '('}}
+                {% for ingredient in salad.ingredients %}
+                    <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
+                {% endfor %}
+                {{ ')'}}
+                </br>
+            </li></b>    
+            {% else %}
+            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};"">{{ salad.name}}
+                <span style="float:right;"> {{salad.price}} </span> 
+                <br>
+                {{ '('}}
+                {% for ingredient in salad.ingredients %}
+                    <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
+                {% endfor %}
+                {{ ')'}}
+                </br>
+            </li> 
+            {% endif %} 
+        {% endfor %}
+    </ul>
 
     {% elif item.type == 'HouseSpecials'%}
+    <ul class="list-group list-group-flush">
         {% for special_food in special_foods %}
-        <tr style="color: {{ item.item_style.color}};">
-                {% if item.item_style.font_style == 'bold' %}
-                    <td style=" padding: 10px; "><b>{{special_food.name}}
-                {% else %}
-                    <td style=" padding: 10px; color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{special_food.name}}
-                {% endif %}
-                    <br>
-                    {{ '('}}
+        {% if item.item_style.font_style == 'bold' %}
+            <li class="list-group-item " style="color: {{ item.item_style.color}};"><b>{{ special_food.name}}
+                <span style="float:right; "> {{special_food.price}} </span> 
+                <br>
+                {{ '('}}
                 {% for ingredient in special_food.ingredients %}
                     <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
                 {% endfor %}
-                    {{ ')'}}
-                    </b>
-                    </br>
-                    </td>
-                    {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}}; "> <b>{{special_food.price}}</b></td>
+                {{ ')'}}
+                </br>
+            </li></b>    
             {% else %}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}}; ">{{special_food.price}}</td>
-            {% endif %}
-                </tr>
-        {% endfor %}
-
-    {% elif item.type == 'Appetizers' %}
-        {% for appetizer in appetizers %}
-            <tr style="color: {{ item.item_style.color}};">
-            {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; "><b>{{appetizer.name}}
-            {% else %}
-                <td style=" padding: 10px; color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{appetizer.name}}
-            {% endif %}
+            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};"">{{ special_food.name}}
+                <span style="float:right;"> {{special_food.price}} </span> 
                 <br>
                 {{ '('}}
-            {% for ingredient in appetizer.ingredients %}
-                <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
-            {% endfor %}
+                {% for ingredient in special_food.ingredients %}
+                    <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
+                {% endfor %}
                 {{ ')'}}
-                </b>
                 </br>
-                </td>
-            {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}}; "> <b>{{appetizer.price}}</b></td>
-            {% else %}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}}; ">{{appetizer.price}}</td>
+            </li> 
             {% endif %}
-            </tr>
         {% endfor %}
+    </ul>
+
+    {% elif item.type == 'Appetizers' %}
+    <ul class="list-group list-group-flush">
+        {% for appetizer in appetizers %}
+            {% if item.item_style.font_style == 'bold' %}
+            <li class="list-group-item " style="color: {{ item.item_style.color}};"><b>{{ appetizer.name}}
+                <span style="float:right; "> {{appetizer.price}} </span> 
+                <br>
+                {{ '('}}
+                {% for ingredient in appetizer.ingredients %}
+                    <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
+                {% endfor %}
+                {{ ')'}}
+                </br>
+            </li></b>    
+            {% else %}
+            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};"">{{ appetizer.name}}
+                <span style="float:right;"> {{appetizer.price}} </span> 
+                <br>
+                {{ '('}}
+                {% for ingredient in appetizer.ingredients %}
+                    <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
+                {% endfor %}
+                {{ ')'}}
+                </br>
+            </li> 
+            {% endif %}
+        {% endfor %}
+    </ul>
 
     {% elif item.type == 'Deserts'%}
+    <ul class="list-group list-group-flush">
         {% for desert in deserts %}
-        <tr style="color: {{ item.item_style.color}};">
-                {% if item.item_style.font_style == 'bold' %}
-                    <td style=" padding: 10px; "><b>{{desert.name}}
-                {% else %}
-                    <td style=" padding: 10px; color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{desert.name}}
-                {% endif %}
-                    <br>
-                    {{ '('}}
+          {% if item.item_style.font_style == 'bold' %}
+            <li class="list-group-item " style="color: {{ item.item_style.color}};"><b>{{ desert.name}}
+                <span style="float:right; "> {{desert.price}} </span> 
+                <br>
+                {{ '('}}
                 {% for ingredient in desert.ingredients %}
                     <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
                 {% endfor %}
-                    {{ ')'}}
-                    </b>
-                    </br>
-                    </td>
-                    {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}}; "> <b>{{desert.price}}</b></td>
+                {{ ')'}}
+                </br>
+            </li></b>    
             {% else %}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}}; ">{{desert.price}}</td>
+            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};"">{{ desert.name}}
+                <span style="float:right;"> {{desert.price}} </span> 
+                <br>
+                {{ '('}}
+                {% for ingredient in desert.ingredients %}
+                    <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
+                {% endfor %}
+                {{ ')'}}
+                </br>
+            </li> 
             {% endif %}
-                </tr>
         {% endfor %}
+    </ul>
 
     {%  elif item.type == 'HotDrinks' %}
+    <ul class="list-group list-group-flush">
         {% for drink in hot_drinks %} 
-            <tr style="color: {{ item.item_style.color}};">
             {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; font-size:: {{ item.item_style.font_size}};"> <b>{{drink.name}} </b></td>
-                <td style=" padding: 10px;"> <b>{{drink.price}} </b></td>
+            <li class="list-group-item " style="color: {{ item.item_style.color}};"><b>{{ drink.name}}
+                <span style="float:right; "> {{drink.price}} </span> 
+            </li></b>    
             {% else %}
-                <td style=" padding: 10px; color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{drink.name}}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}};">{{drink.price}}</td>
+            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};"">{{ drink.name}}
+                <span style="float:right;"> {{drink.price}} </span> 
+            </li> 
             {% endif %}
-            </tr>
         {% endfor %}
+    </ul>
 
     {%  elif item.type == 'Juices' %}
+    <ul class="list-group list-group-flush">
         {% for juice in juices %} 
-            <tr style="color: {{ item.item_style.color}};">
             {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; font-size:: {{ item.item_style.font_size}};"> <b>{{juice.name}} </b></td>
-                <td style=" padding: 10px;"> <b>{{juice.price}} </b></td>
+            <li class="list-group-item " style="color: {{ item.item_style.color}};"><b>{{ juice.name}}
+                <span style="float:right; "> {{juice.price}} </span> 
+            </li></b>    
             {% else %}
-                <td style=" padding: 10px; color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{juice.name}}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}};">{{juice.price}}</td>
+            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};"">{{ juice.name}}
+                <span style="float:right;"> {{juice.price}} </span> 
+            </li> 
             {% endif %}
-            </tr>
         {% endfor %}
+    </ul>
 
     {%  elif item.type == 'Alchocol' %}
+    <ul class="list-group list-group-flush">
         {% for alchocol in alchocols %} 
-            <tr style="color: {{ item.item_style.color}};">
             {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; font-size:: {{ item.item_style.font_size}};"> <b>{{alchocol.name}} </b></td>
-                <td style=" padding: 10px;"> <b>{{alchocol.price}} </b></td>
+            <li class="list-group-item " style="color: {{ item.item_style.color}};"><b>{{ alchocol.name}}
+                <span style="float:right; "> {{alchocol.price}} </span> 
+            </li></b>    
             {% else %}
-                <td style=" padding: 10px; color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{alchocol.name}}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}};">{{alchocol.price}}</td>
+            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};"">{{ alchocol.name}}
+                <span style="float:right;"> {{alchocol.price}} </span> 
+            </li> 
             {% endif %}
-            </tr>
         {% endfor %}
+    </ul>
 
     {%  elif item.type == 'Carbonated' %}
+    <ul class="list-group list-group-flush">
         {% for drink in carbonateds %} 
-            <tr style="color: {{ item.item_style.color}};">
             {% if item.item_style.font_style == 'bold' %}
-                <td style=" padding: 10px; font-size:: {{ item.item_style.font_size}};"> <b>{{drink.name}} </b></td>
-                <td style=" padding: 10px;"> <b>{{drink.price}} </b></td>
+            <li class="list-group-item " style="color: {{ item.item_style.color}};"><b>{{ drink.name}}
+                <span style="float:right; "> {{drink.price}} </span> 
+            </li></b>    
             {% else %}
-                <td style=" padding: 10px; color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{drink.name}}
-                <td style=" padding: 10px; font-style: {{ item.item_style.font_style}};">{{drink.price}}</td>
+            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};"">{{ drink.name}}
+                <span style="float:right;"> {{drink.price}} </span> 
+            </li> 
             {% endif %}
-            </tr>
         {% endfor %}
+        </ul>
     {% endif %}
-</table>
+    </div>
+    </div>
 {% endfor %}
 
-
+ {% endblock %}

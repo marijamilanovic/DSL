@@ -9,7 +9,7 @@ begin
         Filter by type: MainDishes;
         Item style {
             Font size:H1;
-            Font style:bold;
+            Font style:italic;
             Font color:blue
         }
         
@@ -22,7 +22,7 @@ begin
         Filter by type: Soups;
         Item style {
             Font size:H4;
-            Font style:italic;
+            Font style:bold;
             Font color:orange
         }       
     }
