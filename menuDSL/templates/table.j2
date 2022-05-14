@@ -1,8 +1,11 @@
 {% extends 'header_html.j2' %}
 {% block body %}
+<{{title.title_style.font_size}} style="text-align: center; margin-top:20px;color: {{ title.title_style.font_size }}; font-style:{{ title.title_style.font_style }}; ">
+<img src="http://www.delenateagency.com/img/DELBUS1515/icon/menu-view-logo-temp2.png"  width="110" height="80">
+{{title.name}}</{{title.title_style.font_size}}>
 
 {% for item in items %}
-    <div class="card" style="width: 80rem;margin: 0 auto; float: none; margin-bottom: 10px;">
+    <div class="card" style="width: 80rem;margin: 0 auto; float: none; margin-bottom: 10px; margin-top:30px;">
     <div class="card-header">
         {% if item.header.header_style.font_style  == 'bold' %}
         <{{ item.header.header_style.font_size}} style = "color: {{ item.header.header_style.color }};">

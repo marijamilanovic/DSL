@@ -1,14 +1,20 @@
 begin
+    Title:'MyRestaurant';
+    Title style {
+            Font size:H1;
+            Font style:italic;
+            Font color:black
+        }
     Section Food{
         Header: "MainDishes";
         Header style {
-            Font size:H1;
+            Font size:H4;
             Font style:italic;
             Font color:red
         }
         Filter by type: MainDishes;
         Item style {
-            Font size:H1;
+            Font size:H3;
             Font style:italic;
             Font color:blue
         }
