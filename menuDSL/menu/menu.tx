@@ -4,6 +4,7 @@
 
 Program:
     'begin'
+	  title = Title
       menu_sections*=MenuSection    // *= operator means zero or more matches.
       // commands will be
       // a list of command objects
@@ -12,6 +13,13 @@ Program:
 
 // this is an example of abstract rule. command class will never be instantiated
 // in the model.
+Title:
+	'Title:' name=STRING ';'
+	'Title style' '{'
+		title_style=Style
+	'}'
+;
+
 MenuSection:
 	'Section' section_type = SectionType '{'
     	items+=Item
@@ -24,7 +32,7 @@ SectionType:
 
 Item:
     header=Header
-	'Filter by type:' type=Type ';'
+	'Filter by type:' type = Type ';'
 	'Item style' '{'
 		item_style=Style
 	'}'
@@ -56,7 +64,7 @@ Style:
 ;
 
 FontStyle:
-	'Bold' | 'Italic' | 'Underline'
+	'bold' | 'italic'
 ;
 
 DishType:

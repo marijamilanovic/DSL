@@ -11,23 +11,27 @@
     edge[dir=black,arrowtail=empty]
 
 
-2495279768432[ label="{Program|}"]
+2221625123824[ label="{Program|}"]
 
-2495279787632[ label="{MenuSection|section_type: SectionType\l}"]
+2221625140144[ label="{Title|name: STRING\l}"]
 
-2495279780912[ label="{Item|type: Type\l}"]
+2221625133424[ label="{MenuSection|section_type: SectionType\l}"]
 
-2495279779952[ label="{Header|name: STRING\l}"]
+2221625162224[ label="{Item|type: Type\l}"]
 
-2495279796272[ label="{Style|font_size: Size\lfont_style: FontStyle\lcolor: Color\l}"]
+2221625161264[ label="{Header|name: STRING\l}"]
+
+2221625150704[ label="{Style|font_size: Size\lfont_style: FontStyle\lcolor: Color\l}"]
 
 
 
-2495279768432 -> 2495279787632[arrowtail=diamond, dir=both, headlabel="menu_sections 0..*"]
-2495279787632 -> 2495279780912[arrowtail=diamond, dir=both, headlabel="items 1..*"]
-2495279780912 -> 2495279779952[arrowtail=diamond, dir=both, headlabel="header "]
-2495279780912 -> 2495279796272[arrowtail=diamond, dir=both, headlabel="item_style "]
-2495279779952 -> 2495279796272[arrowtail=diamond, dir=both, headlabel="header_style "]
+2221625123824 -> 2221625140144[arrowtail=diamond, dir=both, headlabel="title "]
+2221625123824 -> 2221625133424[arrowtail=diamond, dir=both, headlabel="menu_sections 0..*"]
+2221625140144 -> 2221625150704[arrowtail=diamond, dir=both, headlabel="title_style "]
+2221625133424 -> 2221625162224[arrowtail=diamond, dir=both, headlabel="items 1..*"]
+2221625162224 -> 2221625161264[arrowtail=diamond, dir=both, headlabel="header "]
+2221625162224 -> 2221625150704[arrowtail=diamond, dir=both, headlabel="item_style "]
+2221625161264 -> 2221625150704[arrowtail=diamond, dir=both, headlabel="header_style "]
 match_rules [ shape=plaintext, label=< <table>
 	<tr>
 		<td><b>Color</b></td><td>black|blue|brown|green|grey|orange|pink|purple|red|white|yellow</td>
@@ -42,7 +46,7 @@ match_rules [ shape=plaintext, label=< <table>
 		<td><b>DrinkType</b></td><td>Alchocol|Carbonated|Juices|HotDrinks</td>
 	</tr>
 	<tr>
-		<td><b>FontStyle</b></td><td>Bold|Italic|Underline</td>
+		<td><b>FontStyle</b></td><td>bold|italic</td>
 	</tr>
 	<tr>
 		<td><b>SectionType</b></td><td>Food|Drinks</td>
