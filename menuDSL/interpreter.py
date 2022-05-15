@@ -10,7 +10,7 @@ from models.ingredient import Ingredient
 from models.drink import Drink
 import jinja2
 from generator import *
-import pdfkit
+
 import os
 
 
@@ -39,18 +39,6 @@ def export_example_model():
     my_model = get_model('example.rbt')
     model_export(my_model, 'example.dot')
     return my_model
-
-class Menu:
-    def __init__(self, menu_sections=None):
-        self.menu_sections = menu_sections
-
-    def interpret(self, model):
-        #print(model.menu_sections[0].items[0].type)
-        for m in model.menu_sections:
-            #print(m.__class__.__name__)
-            #print(m.section_type)
-            for item in m.items:
-                print(item.type)
 
 def get_food_data_from_database():
     my_model = get_model('example.rbt')
@@ -149,7 +137,7 @@ def find_ingredients(food):
 
     return food_ingredients
 
-def generate(model, output_dir):
+def generate(output_dir):
     print('Generating html...')
     output_folder = open(output_dir + "/output.html", 'w', encoding="utf-8")
 
@@ -161,18 +149,6 @@ def generate(model, output_dir):
     output_folder.close()
     print('HTML has been generated')
     generate_pdf_from_html(output_dir)
-    
-
-def generate_pdf_from_html(output_dir):
-    print('Generating pdf...')
-    pdfkit.from_file(
-        output_dir + "/output.html", 
-        output_dir + "/output.pdf",
-        configuration=pdfkit.configuration(
-            wkhtmltopdf = join(dirname(__file__), 'wkhtmltopdf.exe')
-            )
-    )
-    print('PDF has been generated')
     
 
 def parse_table(output_folder):
@@ -228,12 +204,9 @@ def parse_table(output_folder):
 
 
 if __name__ == "__main__":
-    if not os.path.exists('generated'):
-        os.makedirs('generated')
     export_meta_model()
     #get_food_data_from_database()
     my_model = export_example_model()
-    menu = Menu()
-    menu.interpret(my_model)
-    generate(my_model,"generated/" )
+    create_folder()
+    generate("generated/")
 
