@@ -5,9 +5,9 @@ from textx.export import metamodel_export, model_export_to_file, model_export
 from io import StringIO
 import psycopg2
 from config import config
-from food import Food
-from ingredient import Ingredient
-from drink import Drink
+from models.food import Food
+from models.ingredient import Ingredient
+from models.drink import Drink
 import jinja2
 from generator import *
 import pdfkit
