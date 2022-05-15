@@ -9,6 +9,10 @@ from food import Food
 from ingredient import Ingredient
 from drink import Drink
 import jinja2
+from generator import *
+import pdfkit
+import os
+
 
 print(join(dirname(__file__), 'templates'))
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(join(dirname(__file__), 'templates')), trim_blocks=True, lstrip_blocks=True)
@@ -145,9 +149,9 @@ def find_ingredients(food):
 
     return food_ingredients
 
-def generate(model, outuput_dir):
-    print('GENERISEM')
-    output_folder = open(outuput_dir + "/output.html", 'w', encoding="utf-8")
+def generate(model, output_dir):
+    print('Generating html...')
+    output_folder = open(output_dir + "/output.html", 'w', encoding="utf-8")
 
     template = jinja_env.get_template('header_html.j2')
     output_folder.write(template.render())
@@ -155,6 +159,21 @@ def generate(model, outuput_dir):
     parse_table(output_folder)
 
     output_folder.close()
+    print('HTML has been generated')
+    generate_pdf_from_html(output_dir)
+    
+
+def generate_pdf_from_html(output_dir):
+    print('Generating pdf...')
+    pdfkit.from_file(
+        output_dir + "/output.html", 
+        output_dir + "/output.pdf",
+        configuration=pdfkit.configuration(
+            wkhtmltopdf = join(dirname(__file__), 'wkhtmltopdf.exe')
+            )
+    )
+    print('PDF has been generated')
+    
 
 def parse_table(output_folder):
     col_names = ['Name', 'Price']
@@ -209,6 +228,8 @@ def parse_table(output_folder):
 
 
 if __name__ == "__main__":
+    if not os.path.exists('generated'):
+        os.makedirs('generated')
     export_meta_model()
     #get_food_data_from_database()
     my_model = export_example_model()
