@@ -11,27 +11,27 @@
     edge[dir=black,arrowtail=empty]
 
 
-1702847424272[ label="{Program|}"]
+1142853112624[ label="{Program|}"]
 
-1702847440320[ label="{Title|name: STRING\l}"]
+1142853138112[ label="{Title|name: STRING\l}"]
 
-1702847443152[ label="{MenuSection|section_type: SectionType\l}"]
+1142853162656[ label="{MenuSection|section_type: SectionType\l}"]
 
-1702847414832[ label="{Item|type: Type\l}"]
+1142853145664[ label="{Item|type: Type\l}"]
 
-1702847419552[ label="{Header|name: STRING\l}"]
+1142853159824[ label="{Header|name: STRING\l}"]
 
-1702847450704[ label="{Style|font_size: Size\lfont_style: FontStyle\lcolor: Color\l}"]
+1142853136224[ label="{Style|font_size: Size\lfont_style: FontStyle\lcolor: Color\l}"]
 
 
 
-1702847424272 -> 1702847440320[arrowtail=diamond, dir=both, headlabel="title "]
-1702847424272 -> 1702847443152[arrowtail=diamond, dir=both, headlabel="menu_sections 0..*"]
-1702847440320 -> 1702847450704[arrowtail=diamond, dir=both, headlabel="title_style "]
-1702847443152 -> 1702847414832[arrowtail=diamond, dir=both, headlabel="items 1..*"]
-1702847414832 -> 1702847419552[arrowtail=diamond, dir=both, headlabel="header "]
-1702847414832 -> 1702847450704[arrowtail=diamond, dir=both, headlabel="item_style "]
-1702847419552 -> 1702847450704[arrowtail=diamond, dir=both, headlabel="header_style "]
+1142853112624 -> 1142853138112[arrowtail=diamond, dir=both, headlabel="title "]
+1142853112624 -> 1142853162656[arrowtail=diamond, dir=both, headlabel="menu_sections 0..*"]
+1142853138112 -> 1142853136224[arrowtail=diamond, dir=both, headlabel="title_style "]
+1142853162656 -> 1142853145664[arrowtail=diamond, dir=both, headlabel="items 1..*"]
+1142853145664 -> 1142853159824[arrowtail=diamond, dir=both, headlabel="header "]
+1142853145664 -> 1142853136224[arrowtail=diamond, dir=both, headlabel="item_style "]
+1142853159824 -> 1142853136224[arrowtail=diamond, dir=both, headlabel="header_style "]
 match_rules [ shape=plaintext, label=< <table>
 	<tr>
 		<td><b>Color</b></td><td>black|blue|brown|green|grey|orange|pink|purple|red|white|yellow</td>

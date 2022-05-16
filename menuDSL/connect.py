@@ -16,6 +16,7 @@ ingredients = (
     (12, 'bread', True),
     (14, 'pumkin', True),
     (15, 'chicken', False),
+    (16, 'pumpkin', True)
 )
 
 food = (
@@ -23,7 +24,7 @@ food = (
     (101, 'burger','MainDishes', 700),
     (102, 'chicken with vegetables', 'MainDishes', 690),
     (103, 'chicken soup', 'Soups', 350),
-    (104, 'pumkin soup', 'Soups', 370),
+    (104, 'pumpkin soup', 'Soups', 370),
 )
 
 food_ingredients= (
@@ -36,6 +37,7 @@ food_ingredients= (
     (306, 101, 10),
     (307, 101, 11),
     (308, 101, 12),
+    (309, 104, 16),
 )
 
 drinks = (
