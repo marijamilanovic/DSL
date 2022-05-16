@@ -18,13 +18,14 @@ Our DSL enables:
 - Discounts
 - House Specials
 - Images
-- Data from MySQL database
+- Data from PostgreSQL database
 
 ### Technologies
 - Python 3.6+
 - textX
 - Jinja2 template engine
-- MySQL
+- PostgreSQL
+- PDFkit
 
 ### Instructions
 1. Open a terminal as admin and create a virtual environment <br>
