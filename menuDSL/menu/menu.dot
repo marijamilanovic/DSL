@@ -11,27 +11,29 @@
     edge[dir=black,arrowtail=empty]
 
 
-1142853112624[ label="{Program|}"]
+2269579908896[ label="{Program|}"]
 
-1142853138112[ label="{Title|name: STRING\l}"]
+2269579915504[ label="{Title|name: STRING\l}"]
 
-1142853162656[ label="{MenuSection|section_type: SectionType\l}"]
+2269579895680[ label="{MenuSection|section_type: SectionType\l}"]
 
-1142853145664[ label="{Item|type: Type\l}"]
+2269579930608[ label="{Item|type: Type\l}"]
 
-1142853159824[ label="{Header|name: STRING\l}"]
+2269579907008[ label="{Header|name: STRING\l}"]
 
-1142853136224[ label="{Style|font_size: Size\lfont_style: FontStyle\lcolor: Color\l}"]
+2269579936272[ label="{Style|font_size: Size\lfont_style: FontStyle\lcolor: Color\l}"]
+
+2269579942880[ label="{StyleItem|font_size: INT\lfont_style: FontStyle\lcolor: Color\l}"]
 
 
 
-1142853112624 -> 1142853138112[arrowtail=diamond, dir=both, headlabel="title "]
-1142853112624 -> 1142853162656[arrowtail=diamond, dir=both, headlabel="menu_sections 0..*"]
-1142853138112 -> 1142853136224[arrowtail=diamond, dir=both, headlabel="title_style "]
-1142853162656 -> 1142853145664[arrowtail=diamond, dir=both, headlabel="items 1..*"]
-1142853145664 -> 1142853159824[arrowtail=diamond, dir=both, headlabel="header "]
-1142853145664 -> 1142853136224[arrowtail=diamond, dir=both, headlabel="item_style "]
-1142853159824 -> 1142853136224[arrowtail=diamond, dir=both, headlabel="header_style "]
+2269579908896 -> 2269579915504[arrowtail=diamond, dir=both, headlabel="title "]
+2269579908896 -> 2269579895680[arrowtail=diamond, dir=both, headlabel="menu_sections 0..*"]
+2269579915504 -> 2269579936272[arrowtail=diamond, dir=both, headlabel="title_style "]
+2269579895680 -> 2269579930608[arrowtail=diamond, dir=both, headlabel="items 1..*"]
+2269579930608 -> 2269579907008[arrowtail=diamond, dir=both, headlabel="header "]
+2269579930608 -> 2269579942880[arrowtail=diamond, dir=both, headlabel="item_style "]
+2269579907008 -> 2269579936272[arrowtail=diamond, dir=both, headlabel="header_style "]
 match_rules [ shape=plaintext, label=< <table>
 	<tr>
 		<td><b>Color</b></td><td>black|blue|brown|green|grey|orange|pink|purple|red|white|yellow</td>

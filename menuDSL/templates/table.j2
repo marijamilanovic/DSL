@@ -23,7 +23,7 @@
             <ul class="list-group list-group-flush">
             {% for food in main_dishes %}
                 {% if item.item_style.font_style == 'bold' %}
-                    <li class="list-group-item " style="color: {{ item.item_style.color}};">
+                    <li class="list-group-item " style="color:{{ item.item_style.color}}; font-size:{{item.item_style.font_size}}px">
                         <b>
                             {{ food.name }}
                             <span style="float:right; "> {{food.price}} </span> 
@@ -38,7 +38,7 @@
                         </b>
                     </li>    
                 {% else %}
-                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{ food.name}}
+                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">{{ food.name}}
                         <span style="float:right;"> {{food.price}} </span> 
                         <br>
                         {% if food.ingredients %}
@@ -57,7 +57,7 @@
         <ul class="list-group list-group-flush">
         {% for soup in soups %}
             {% if item.item_style.font_style == 'bold' %}
-                <li class="list-group-item " style="color: {{ item.item_style.color}};">
+                <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                     <b>
                         {{ soup.name}}
                         <span style="float:right; "> {{soup.price}} </span> 
@@ -72,7 +72,8 @@
                     </b>
                 </li>    
             {% else %}
-                <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{ soup.name}}
+                <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">
+                    {{ soup.name}}
                     <span style="float:right;"> {{soup.price}} </span> 
                     <br>
                     {% if soup.ingredients %}
@@ -91,7 +92,7 @@
         <ul class="list-group list-group-flush">
             {% for salad in salads %}
                 {% if item.item_style.font_style == 'bold' %}
-                    <li class="list-group-item " style="color: {{ item.item_style.color}};">
+                    <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                         <b>
                             {{ salad.name}}
                             <span style="float:right; "> {{salad.price}} </span> 
@@ -106,7 +107,8 @@
                         </b>
                     </li>    
                 {% else %}
-                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{ salad.name}}
+                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">
+                        {{ salad.name}}
                         <span style="float:right;"> {{salad.price}} </span> 
                         <br>
                         {% if salad.ingredients %}
@@ -125,7 +127,7 @@
         <ul class="list-group list-group-flush">
             {% for special_food in special_foods %}
                 {% if item.item_style.font_style == 'bold' %}
-                    <li class="list-group-item " style="color: {{ item.item_style.color}};">
+                    <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                         <b>
                             {{ special_food.name}}
                             <span style="float:right; "> {{special_food.price}} </span> 
@@ -140,7 +142,8 @@
                         </b>
                     </li>    
                 {% else %}
-                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{ special_food.name}}
+                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">
+                        {{ special_food.name}}
                         <span style="float:right;"> {{special_food.price}} </span> 
                         <br>
                         {% if special_food.ingredients %}
@@ -159,7 +162,7 @@
         <ul class="list-group list-group-flush">
             {% for appetizer in appetizers %}
                 {% if item.item_style.font_style == 'bold' %}
-                    <li class="list-group-item " style="color: {{ item.item_style.color}};">
+                    <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                         <b>
                             {{ appetizer.name}}
                             <span style="float:right; "> {{appetizer.price}} </span> 
@@ -174,7 +177,7 @@
                         </b>
                     </li>    
                 {% else %}
-                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{ appetizer.name}}
+                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">{{ appetizer.name}}
                         <span style="float:right;"> {{appetizer.price}} </span> 
                         <br>
                         {% if appetizer.ingredients %}
@@ -193,7 +196,7 @@
     <ul class="list-group list-group-flush">
         {% for desert in deserts %}
           {% if item.item_style.font_style == 'bold' %}
-            <li class="list-group-item " style="color: {{ item.item_style.color}};">
+            <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                 <b>
                     {{ desert.name}}
                     <span style="float:right; "> {{desert.price}} </span> 
@@ -208,7 +211,8 @@
                 </b>
             </li>    
             {% else %}
-            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">{{ desert.name}}
+            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">
+                {{ desert.name}}
                 <span style="float:right;"> {{desert.price}} </span> 
                 <br>
                 {% if desert.ingredients %}
@@ -227,14 +231,14 @@
         <ul class="list-group list-group-flush">
             {% for drink in hot_drinks %} 
                 {% if item.item_style.font_style == 'bold' %}
-                <li class="list-group-item " style="color: {{ item.item_style.color}};">
+                <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                     <b>
                         {{ drink.name}}
                         <span style="float:right; "> {{drink.price}} </span>
                     </b>
                 </li>    
                 {% else %}
-                <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">
+                <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">
                     {{ drink.name}}
                     <span style="float:right;"> {{drink.price}} </span> 
                 </li> 
@@ -246,14 +250,14 @@
         <ul class="list-group list-group-flush">
             {% for juice in juices %} 
                 {% if item.item_style.font_style == 'bold' %}
-                    <li class="list-group-item " style="color: {{ item.item_style.color}};">
+                    <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                         <b>
                             {{ juice.name}}
                             <span style="float:right; "> {{juice.price}} </span>
                         </b> 
                     </li>    
                 {% else %}
-                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">
+                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">
                         {{ juice.name}}
                         <span style="float:right;"> {{juice.price}} </span> 
                     </li> 
@@ -265,14 +269,14 @@
         <ul class="list-group list-group-flush">
             {% for alchocol in alchocols %} 
                 {% if item.item_style.font_style == 'bold' %}
-                    <li class="list-group-item " style="color: {{ item.item_style.color}};">
+                    <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                         <b>
                             {{ alchocol.name}}
                             <span style="float:right; "> {{alchocol.price}} </span>
                         </b>
                     </li>    
                 {% else %}
-                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">
+                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">
                         {{ alchocol.name}}
                         <span style="float:right;"> {{alchocol.price}} </span> 
                     </li> 
@@ -284,14 +288,14 @@
         <ul class="list-group list-group-flush">
             {% for drink in carbonateds %} 
                 {% if item.item_style.font_style == 'bold' %}
-                    <li class="list-group-item " style="color: {{ item.item_style.color}};">
+                    <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                         <b>
                             {{ drink.name}}
                             <span style="float:right; "> {{drink.price}} </span>
                         </b>
                     </li>    
                 {% else %}
-                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};">
+                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">
                         {{ drink.name}}
                         <span style="float:right;"> {{drink.price}} </span> 
                     </li> 

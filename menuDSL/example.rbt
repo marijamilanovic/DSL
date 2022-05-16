@@ -14,7 +14,7 @@ begin
         }
         Filter by type: MainDishes;
         Item style {
-            Font size:H3;
+            Font size:10;
             Font style:italic;
             Font color:blue
         }
@@ -27,7 +27,7 @@ begin
         }
         Filter by type: Soups;
         Item style {
-            Font size:H4;
+            Font size:20;
             Font style:bold;
             Font color:orange
         }       
@@ -42,7 +42,7 @@ begin
         }
         Filter by type: HotDrinks;
         Item style {
-            Font size:H5;
+            Font size:15;
             Font style:bold;
             Font color:red
         }
