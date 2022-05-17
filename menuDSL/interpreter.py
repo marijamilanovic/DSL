@@ -137,9 +137,9 @@ def find_ingredients(food):
 
     return food_ingredients
 
-def generate(output_dir):
+def generate(model, output_dir):
     print('Generating html...')
-    output_folder = open(output_dir + "/output.html", 'w', encoding="utf-8")
+    output_folder = open(output_dir + "/generated/output.html", 'w', encoding="utf-8")
 
     template = jinja_env.get_template('header_html.j2')
     output_folder.write(template.render())
@@ -148,7 +148,7 @@ def generate(output_dir):
 
     output_folder.close()
     print('HTML has been generated')
-    generate_pdf_from_html(output_dir)
+    generate_pdf_from_html(output_dir + "/generated")
     
 
 def parse_table(output_folder):
@@ -165,6 +165,7 @@ def parse_table(output_folder):
     juices = []
     items = []
     title = ''
+    my_model = export_example_model()
     for menu_section in my_model.menu_sections:
         title = my_model.title
         sections = my_model.menu_sections
@@ -205,8 +206,6 @@ def parse_table(output_folder):
 
 if __name__ == "__main__":
     export_meta_model()
-    #get_food_data_from_database()
     my_model = export_example_model()
     create_folder()
-    generate("generated/")
 

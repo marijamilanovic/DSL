@@ -1,12 +1,13 @@
 import os
 from textx import language, metamodel_from_file
-from textx import generator as file_generator
-from .interpreter import generate
+from textx import generator as gen
+from interpreter import generate
+from os.path import dirname
 
 __version__ = "0.1.0.dev"
 
 
-@language('menu', '*.que')
+@language('menu', '*.rbt')
 def menu_language():
     "menu language"
     current_dir = os.path.dirname(__file__)
@@ -21,7 +22,7 @@ def menu_language():
 
 @gen('menu', 'html+pdf')
 def menu_generate_files(metamodel, model, output_path, overwrite, debug): 
-    """Generating pdf and html from document visualization text"""
+    "Generating pdf and html from document visualization text"
     input_file = model._tx_filename
     output_dir = output_path if output_path else dirname(input_file)
     generate(model, output_dir)
