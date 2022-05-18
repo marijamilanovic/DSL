@@ -15,8 +15,8 @@ Our DSL enables restaurants to automatically generate menu. Restaurants could ea
 ### Features
 Our DSL enables:
 - Tables for every food section (name, price and ingredients)
-- Discounts
-- House Specials
+- Filtering by food type and creating specific menu
+- Defining style of the menu
 - Images
 - Data from PostgreSQL database
 
