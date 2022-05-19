@@ -35,7 +35,11 @@ Our DSL enables:
     ```source env/bin/active```
    - For Windows:
      ```env\Scripts\activate.bat```
-3. To deactivate virtual environment type <br>
+3. Change directory <br>
+```cd DSL/menuDSL```
+5. Generate html and pdf <br>
+```textx generate example.rbt --target html+pdf```
+6. To deactivate virtual environment type <br>
 ```deactivate```
 
 ### Example
