@@ -1,5 +1,6 @@
 Program:
     'begin'
+	  (menu_color = MenuColor)?
 	  title = Title
       menu_sections*=MenuSection    // *= operator means zero or more matches.
       // commands will be
@@ -12,6 +13,10 @@ Title:
 	'Title style' '{'
 		title_style=Style
 	'}'
+;
+
+MenuColor:
+	'Menu color:' color = Color ';'
 ;
 
 MenuSection:
@@ -48,7 +53,7 @@ Size:
 ;
 
 Color:
-	'black' | 'blue' | 'brown' | 'green' | 'grey' | 'orange' | 'pink' | 'purple' |'red' | 'white' |'yellow'
+	'black' | 'blue' | 'brown' | 'green' | 'grey' | 'orange' | 'pink' | 'purple' |'red' | 'white' |'yellow' | 'powderblue'
 ;
 
 Style:
