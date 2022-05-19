@@ -155,9 +155,6 @@ def generate(model, output_dir):
 
 def parse_table(output_folder):
     abs_image_path = os.path.abspath("images/menu_logo.png")
-    print('**********************')
-    print(abs_image_path)
-    print('**********************')
     col_names = ['Name', 'Price']
     main_dishes = []
     soups = []
@@ -207,7 +204,6 @@ def parse_table(output_folder):
             juices.append(drink)
     
     template = jinja_env.get_template('table.j2')
-    #output_folder.write(template.render(image_source=join(data.image_source)))
     output_folder.write(template.render(sections = sections, col_names=col_names, items = items, main_dishes = main_dishes , 
     soups = soups, salads = salads, appetizers = appetizers, deserts = deserts, house_specials = house_specials,
     hot_drinks = hot_drinks, juices = juices, alchocols = alchocols, carbonateds = carbonateds, title = title,
