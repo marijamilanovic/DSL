@@ -207,10 +207,11 @@ def parse_table(output_folder):
             juices.append(drink)
     
     template = jinja_env.get_template('table.j2')
+    #output_folder.write(template.render(image_source=join(data.image_source)))
     output_folder.write(template.render(sections = sections, col_names=col_names, items = items, main_dishes = main_dishes , 
     soups = soups, salads = salads, appetizers = appetizers, deserts = deserts, house_specials = house_specials,
     hot_drinks = hot_drinks, juices = juices, alchocols = alchocols, carbonateds = carbonateds, title = title,
-    menu_color = menu_color, abs_image_path = abs_image_path))
+    menu_color = menu_color, abs_image_path = join(abs_image_path)))
 
 
 if __name__ == "__main__":
