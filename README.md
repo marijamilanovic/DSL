@@ -43,7 +43,7 @@ Our DSL enables:
 ```deactivate```
 
 ### Example
-![image](https://user-images.githubusercontent.com/57723883/147284852-4e2e8bec-4be9-4457-8a20-0dd654f8b9ff.png)
+![menu1](https://user-images.githubusercontent.com/57723883/169604697-a259adcd-3f0b-4b75-b2dd-aa9cc614d70b.png)
 
 
 
