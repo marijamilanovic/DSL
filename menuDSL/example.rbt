@@ -1,4 +1,5 @@
 begin
+    Menu color: powderblue;
     Title:'MyRestaurant';
     Title style {
             Font size:H1;
