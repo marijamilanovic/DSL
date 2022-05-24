@@ -25,6 +25,7 @@
                 {% if item.item_style.font_style == 'bold' %}
                     <li class="list-group-item " style="color:{{ item.item_style.color}}; font-size:{{item.item_style.font_size}}px">
                         <b>
+                            <span style="float:right; "> {{food.price}} </span>
                             {{ food.name }}
                             <span style="float:right; "> {{food.price}} </span> 
                             <br>

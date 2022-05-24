@@ -73,7 +73,7 @@ def find_food_data_from_database(type):
         cur.execute("SELECT * FROM food WHERE food_type=%(food_type)s", {'food_type': type})
         rows = cur.fetchall()
         for row in rows:
-            food = Food(row[0], row[1], row[2], row[3])
+            food = Food(row[0], row[1], row[2], row[3], row[4])
             find_ingredients(food)
             foods.append(food)
         

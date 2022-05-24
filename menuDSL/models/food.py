@@ -1,10 +1,11 @@
 class Food:
-    def __init__(self, id, name, food_type, price):
+    def __init__(self, id, name, food_type, price, image):
         self.id = id
         self.name = name
         self.food_type = food_type
         self.price = price
         self.ingredients=[]
+        self.image = image
 
     def getId(self):
         return self.id
@@ -20,3 +21,6 @@ class Food:
 
     def add_ingredient(self,newIngredient):
         self.ingredients.append(newIngredient)
+
+    def get_image(self):
+        return self.image
