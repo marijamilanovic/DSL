@@ -48,6 +48,8 @@ def get_food_data_from_database():
             if menu_section.section_type == 'Food':
                 food = find_food_data_from_database(item.type)  #lista filtrirane hrane
                 for f in food:
+                    f.image = os.path.abspath("images/"+f.image)
+                    f.image = join(f.image)
                     all_food.append(f)
     return all_food
 
@@ -155,7 +157,7 @@ def generate(model, output_dir):
 
 def parse_table(output_folder):
     abs_image_path = os.path.abspath("images/menu_logo.png")
-    col_names = ['Name', 'Price']
+    col_names = ['Name', 'Price', 'Images']
     main_dishes = []
     soups = []
     hot_drinks = []
