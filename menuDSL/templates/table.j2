@@ -22,9 +22,13 @@
         {% if item.type == 'MainDishes' %}
             <ul class="list-group list-group-flush" style="display:float;" >
             {% for food in main_dishes %}
-                <img src="{{food.image}}"  width="120" height="90" >
                 {% if item.item_style.font_style == 'bold' %}
-                    <li class="list-group-item " style="color:{{ item.item_style.color}}; font-size:{{item.item_style.font_size}}px">
+                    <div style=" padding:1%;">
+                    <li class="list-group-item" style=" color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px;">
+                    <div  class="left" style=" float:left;">
+                    <img src="{{food.image}}"  width="120" height="90" >
+                    </div>
+                    <div  class="right" style="margin-left:150px;">
                         <b>
                             {{ food.name }}
                             <span style="float:right;"> {{food.price}} </span> 
@@ -37,19 +41,31 @@
                                 {{ ')' }}
                             {% endif %}
                         </b>
-                    </li>    
+                        </div>
+                        <div style="float: none; clear: both;"></div>
+                    </li>  
+                    </div>  
                 {% else %}
-                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">{{ food.name}}
+                <div style=" padding:1%;">
+                    <li class="list-group-item" style=" color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px;">
+                    <div  class="left" style=" float:left;">
+                    <img src="{{food.image}}"  width="120" height="90" >
+                    </div>
+                    <div  class="right" style="margin-left:150px;">
+                    {{ food.name}}
                         <span style="float:right;"> {{food.price}} </span> 
                         <br>
                         {% if food.ingredients %}
                             {{ '('}}
                             {% for ingredient in food.ingredients %}
-                                <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
+                                <p style="display:inline-block;"> {{ ingredient[1]}} {{ ','}}</p>
                             {% endfor %}
                             {{ ')'}}
                         {% endif %}
+                        </div>
+                        <div style="float: none; clear: both;"></div>
                     </li>
+                </div>
                 {% endif %}   
             {% endfor %}
             </ul>
@@ -57,9 +73,13 @@
     {% elif item.type == 'Soups'%}
         <ul class="list-group list-group-flush">
         {% for soup in soups %}
-        <img src="{{soup.image}}"  width="120" height="90"  >
             {% if item.item_style.font_style == 'bold' %}
-                <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
+                <div style=" padding:1%;">
+                    <li class="list-group-item" style=" color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px;">
+                    <div  class="left" style=" float:left;">
+                    <img src="{{soup.image}}"  width="120" height="90" >
+                    </div>
+                    <div  class="right" style="margin-left:150px;">
                     <b>
                         {{ soup.name}}
                         <span style="float:right; ">{{soup.price}}</span> 
@@ -72,9 +92,17 @@
                             {{ ')'}}
                         {% endif %}
                     </b>
-                </li>    
+                </div>
+                        <div style="float: none; clear: both;"></div>
+                    </li>
+                </div>   
             {% else %}
-                <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">
+                <div style=" padding:1%;">
+                    <li class="list-group-item" style=" color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px;">
+                    <div  class="left" style=" float:left;">
+                    <img src="{{soup.image}}"  width="120" height="90" >
+                    </div>
+                    <div  class="right" style="margin-left:150px;">
                     {{ soup.name}}
                     <span style="float:right;"> {{soup.price}} </span> 
                     <br>
@@ -85,7 +113,10 @@
                         {% endfor %}
                         {{ ')'}}
                     {% endif %}
-                </li> 
+                    </div>
+                        <div style="float: none; clear: both;"></div>
+                    </li>
+                </div>
             {% endif %}   
         {% endfor %}
         </ul>
@@ -93,9 +124,13 @@
     {% elif item.type == 'Salads' %}
         <ul class="list-group list-group-flush">
             {% for salad in salads %}
-            <img src="{{salad.image}}"  width="120" height="90"  >
                 {% if item.item_style.font_style == 'bold' %}
-                    <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
+                    <div style=" padding:1%;">
+                    <li class="list-group-item" style=" color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px;">
+                    <div  class="left" style=" float:left;">
+                    <img src="{{salad.image}}"  width="120" height="90" >
+                    </div>
+                    <div  class="right" style="margin-left:150px;">
                         <b>
                             {{ salad.name}}
                             <span style="float:right; "> {{salad.price}} </span> 
@@ -108,9 +143,17 @@
                                 {{ ')'}}
                             {% endif %}
                         </b>
-                    </li>    
+                     </div>
+                        <div style="float: none; clear: both;"></div>
+                    </li>
+                </div>   
                 {% else %}
-                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">
+                    <div style=" padding:1%;">
+                    <li class="list-group-item" style=" color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px;">
+                    <div  class="left" style=" float:left;">
+                    <img src="{{salad.image}}"  width="120" height="90" >
+                    </div>
+                    <div  class="right" style="margin-left:150px;">
                         {{ salad.name}}
                         <span style="float:right;"> {{salad.price}} </span> 
                         <br>
@@ -121,7 +164,10 @@
                             {% endfor %}
                             {{ ')'}}
                         {% endif %}
-                    </li> 
+                    </div>
+                        <div style="float: none; clear: both;"></div>
+                    </li>
+                </div>
                 {% endif %} 
             {% endfor %}
         </ul>
@@ -129,9 +175,13 @@
     {% elif item.type == 'HouseSpecials'%}
         <ul class="list-group list-group-flush">
             {% for special_food in special_foods %}
-            <img src="{{special_food.image}}"  width="120" height="90"  >
                 {% if item.item_style.font_style == 'bold' %}
-                    <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
+                   <div style=" padding:1%;">
+                    <li class="list-group-item" style=" color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px;">
+                    <div  class="left" style=" float:left;">
+                    <img src="{{special_food.image}}"  width="120" height="90" >
+                    </div>
+                    <div  class="right" style="margin-left:150px;">
                         <b>
                             {{ special_food.name}}
                             <span style="float:right; "> {{special_food.price}} </span> 
@@ -144,9 +194,17 @@
                                 {{ ')'}}
                             {% endif %}
                         </b>
-                    </li>    
+                    </div>
+                        <div style="float: none; clear: both;"></div>
+                    </li>
+                </div>   
                 {% else %}
-                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">
+                    <div style=" padding:1%;">
+                    <li class="list-group-item" style=" color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px;">
+                    <div  class="left" style=" float:left;">
+                    <img src="{{special_food.image}}"  width="120" height="90" >
+                    </div>
+                    <div  class="right" style="margin-left:150px;">
                         {{ special_food.name}}
                         <span style="float:right;"> {{special_food.price}} </span> 
                         <br>
@@ -157,7 +215,10 @@
                             {% endfor %}
                             {{ ')'}}
                         {% endif %}
-                    </li> 
+                    </div>
+                        <div style="float: none; clear: both;"></div>
+                    </li>
+                </div>
                 {% endif %}
             {% endfor %}
         </ul>
@@ -165,9 +226,13 @@
     {% elif item.type == 'Appetizers' %}
         <ul class="list-group list-group-flush">
             {% for appetizer in appetizers %}
-            <img src="{{appetizer.image}}"  width="120" height="90"  >
                 {% if item.item_style.font_style == 'bold' %}
-                    <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
+                    <div style=" padding:1%;">
+                    <li class="list-group-item" style=" color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px;">
+                    <div  class="left" style=" float:left;">
+                    <img src="{{appetizer.image}}"  width="120" height="90" >
+                    </div>
+                    <div  class="right" style="margin-left:150px;">
                         <b>
                             {{ appetizer.name}}
                             <span style="float:right; "> {{appetizer.price}} </span> 
@@ -180,9 +245,17 @@
                                 {{ ')'}}
                             {% endif %}
                         </b>
-                    </li>    
+                    </div>
+                        <div style="float: none; clear: both;"></div>
+                    </li>
+                </div>     
                 {% else %}
-                    <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">{{ appetizer.name}}
+                    <div style=" padding:1%;">
+                    <li class="list-group-item" style=" color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px;">
+                    <div  class="left" style=" float:left;">
+                    <img src="{{appetizer.image}}"  width="120" height="90" >
+                    </div>
+                    <div  class="right" style="margin-left:150px;">
                         <span style="float:right;"> {{appetizer.price}} </span> 
                         <br>
                         {% if appetizer.ingredients %}
