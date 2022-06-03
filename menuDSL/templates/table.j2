@@ -18,16 +18,16 @@
             {% endif %}
         </div>
     {# MainDishes #}
-    <div class="card-body">
+    <div class="card-body" >
         {% if item.type == 'MainDishes' %}
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush" style="display:float;" >
             {% for food in main_dishes %}
-                <img src="{{food.image}}"  width="120" height="90">
+                <img src="{{food.image}}"  width="120" height="90" >
                 {% if item.item_style.font_style == 'bold' %}
-                    <li class="list-group-item " style="  margin-top: -100px; color:{{ item.item_style.color}}; font-size:{{item.item_style.font_size}}px">
+                    <li class="list-group-item " style="color:{{ item.item_style.color}}; font-size:{{item.item_style.font_size}}px">
                         <b>
                             {{ food.name }}
-                            <span style="float:right;> {{food.price}} </span> 
+                            <span style="float:right;"> {{food.price}} </span> 
                             <br>
                             {% if food.ingredients %}
                                 {{ '(' }}
@@ -49,19 +49,20 @@
                             {% endfor %}
                             {{ ')'}}
                         {% endif %}
-                    </li> 
-                {% endif %}     
+                    </li>
+                {% endif %}   
             {% endfor %}
             </ul>
     {# Soups #}
     {% elif item.type == 'Soups'%}
         <ul class="list-group list-group-flush">
         {% for soup in soups %}
+        <img src="{{soup.image}}"  width="120" height="90"  >
             {% if item.item_style.font_style == 'bold' %}
                 <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                     <b>
                         {{ soup.name}}
-                        <span style="float:right; "> {{soup.price}} </span> 
+                        <span style="float:right; ">{{soup.price}}</span> 
                         <br>
                         {% if soup.ingredients %}
                             {{ '('}}
@@ -85,13 +86,14 @@
                         {{ ')'}}
                     {% endif %}
                 </li> 
-            {% endif %}     
+            {% endif %}   
         {% endfor %}
         </ul>
     {# Salads #}
     {% elif item.type == 'Salads' %}
         <ul class="list-group list-group-flush">
             {% for salad in salads %}
+            <img src="{{salad.image}}"  width="120" height="90"  >
                 {% if item.item_style.font_style == 'bold' %}
                     <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                         <b>
@@ -127,6 +129,7 @@
     {% elif item.type == 'HouseSpecials'%}
         <ul class="list-group list-group-flush">
             {% for special_food in special_foods %}
+            <img src="{{special_food.image}}"  width="120" height="90"  >
                 {% if item.item_style.font_style == 'bold' %}
                     <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                         <b>
@@ -162,6 +165,7 @@
     {% elif item.type == 'Appetizers' %}
         <ul class="list-group list-group-flush">
             {% for appetizer in appetizers %}
+            <img src="{{appetizer.image}}"  width="120" height="90"  >
                 {% if item.item_style.font_style == 'bold' %}
                     <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                         <b>
@@ -196,6 +200,7 @@
     {% elif item.type == 'Deserts'%}
     <ul class="list-group list-group-flush">
         {% for desert in deserts %}
+        <img src="{{desert.image}}"  width="120" height="90"  >
           {% if item.item_style.font_style == 'bold' %}
             <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
                 <b>
