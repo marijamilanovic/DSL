@@ -270,38 +270,53 @@
             {% endfor %}
         </ul>
     {# Deserts #}
-    {% elif item.type == 'Deserts'%}
+    {% elif item.type == 'Desert'%}
     <ul class="list-group list-group-flush">
         {% for desert in deserts %}
-        <img src="{{desert.image}}"  width="120" height="90"  >
           {% if item.item_style.font_style == 'bold' %}
-            <li class="list-group-item " style="color: {{ item.item_style.color}};font-size:{{item.item_style.font_size}}px">
-                <b>
+             <div style=" padding:1%;">
+                    <li class="list-group-item" style=" color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px;">
+                    <div  class="left" style=" float:left;">
+                    <img src="{{desert.image}}"  width="120" height="90" >
+                    </div>
+                    <div  class="right" style="margin-left:150px;">
+                        <b>
+                            {{ desert.name }}
+                            <span style="float:right;"> {{desert.price}} </span> 
+                            <br>
+                            {% if desert.ingredients %}
+                                {{ '(' }}
+                                {% for ingredient in desert.ingredients %}
+                                    <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
+                                {% endfor %}
+                                {{ ')' }}
+                            {% endif %}
+                        </b>
+                        </div>
+                        <div style="float: none; clear: both;"></div>
+                    </li>  
+                </div>  
+            {% else %}
+             <div style=" padding:1%;">
+                    <li class="list-group-item" style=" color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px;">
+                    <div  class="left" style=" float:left;">
+                    <img src="{{desert.image}}"  width="120" height="90" >
+                    </div>
+                    <div  class="right" style="margin-left:150px;">
                     {{ desert.name}}
-                    <span style="float:right; "> {{desert.price}} </span> 
+                    <span style="float:right;"> {{desert.price}} </span> 
                     <br>
                     {% if desert.ingredients %}
-                        {{ '(' }}
+                        {{ '('}}
                         {% for ingredient in desert.ingredients %}
                             <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
                         {% endfor %}
                         {{ ')'}}
                     {% endif %}
-                </b>
-            </li>    
-            {% else %}
-            <li class="list-group-item" style="color: {{ item.item_style.color}}; font-style: {{ item.item_style.font_style}};font-size:{{item.item_style.font_size}}px">
-                {{ desert.name}}
-                <span style="float:right;"> {{desert.price}} </span> 
-                <br>
-                {% if desert.ingredients %}
-                    {{ '(' }}
-                    {% for ingredient in desert.ingredients %}
-                        <p style="display:inline-block"> {{ ingredient[1]}} {{ ','}}</p>
-                    {% endfor %}
-                    {{ ')' }}
-                {% endif %}
-            </li> 
+                    </div>
+                        <div style="float: none; clear: both;"></div>
+                    </li>
+                </div>
             {% endif %}
         {% endfor %}
     </ul>

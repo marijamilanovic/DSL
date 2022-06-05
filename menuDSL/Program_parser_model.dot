@@ -200,7 +200,7 @@ digraph arpeggio_graph {
 2207942116256 [label="StrMatch(Salads)"];
 2207942065936->2207942116304 [label="6"]
 
-2207942116304 [label="StrMatch(Desert)"];
+2207942116304 [label="StrMatch(Deserts)"];
 2207942065936->2207942116352 [label="7"]
 
 2207942116352 [label="StrMatch(FastingDishes)"];

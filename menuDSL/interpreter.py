@@ -17,10 +17,6 @@ import os
 print(join(dirname(__file__), 'templates'))
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(join(dirname(__file__), 'templates')), trim_blocks=True, lstrip_blocks=True)
 
-all_data = {}
-all_data_colnames = {}
-
-
 def get_meta_model():
     current_dir = dirname(__file__)
     my_metamodel = metamodel_from_file(join(current_dir + '\menu', 'menu.tx'), debug=False)
@@ -192,7 +188,7 @@ def parse_table(output_folder):
             house_specials.append(food)
         elif food.food_type == 'Salads':
             salads.append(food)
-        else:
+        elif food.food_type == 'Desert':
             deserts.append(food)
     
     for drink in drink_data:
