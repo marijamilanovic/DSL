@@ -38,7 +38,7 @@ Our DSL enables:
 3. Change directory <br>
 ```cd DSL/menuDSL```
 5. Generate html and pdf <br>
-```textx generate example.rbt --target html+pdf```
+```textx generate example.fdm --target html+pdf```
 6. To deactivate virtual environment type <br>
 ```deactivate```
 

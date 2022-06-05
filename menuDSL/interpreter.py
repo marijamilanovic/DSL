@@ -32,12 +32,12 @@ def export_meta_model():
     metamodel_export(my_metamodel, join(dirname(__file__), join("menu/", 'menu.dot')))
 
 def export_example_model():
-    my_model = get_model('example.rbt')
+    my_model = get_model('example.fdm')
     model_export(my_model, 'example.dot')
     return my_model
 
 def get_food_data_from_database():
-    my_model = get_model('example.rbt')
+    my_model = get_model('example.fdm')
     all_food = []
     for menu_section in my_model.menu_sections:
         for item in menu_section.items:
@@ -50,7 +50,7 @@ def get_food_data_from_database():
     return all_food
 
 def get_drink_data_from_database():
-    my_model = get_model('example.rbt')
+    my_model = get_model('example.fdm')
     all_drinks = []
     for menu_section in my_model.menu_sections:
         for item in menu_section.items:
