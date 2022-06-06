@@ -1,0 +1,50 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "FDM programming language",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#section_keywords"
+		},
+		{
+			"include": "#style_keywords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.fdm",
+				"match": "\\b(begin|end)\\b"
+			}]
+		},
+		"section_keywords": {
+			"patterns": [{
+				"name": "keyword.section.fdm",
+				"match": "\\b(Title|Title style|Section|Menu color|Header|Item)\\b"
+			}]
+		},
+		"style_keywords": {
+			"patterns": [{
+				"name": "markup.italic.markdown",
+				"match": "\\b(Font size|Font color|Font style)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.fdm",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.fdm",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.fdm"
+}

@@ -1,0 +1,25 @@
+{
+    "name": "fdm",
+    "displayName": "FDM",
+    "description": "FDM programming language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.67.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "fdm",
+            "aliases": ["FDM programming language", "fdm"],
+            "extensions": [".fdm"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "fdm",
+            "scopeName": "source.fdm",
+            "path": "./syntaxes/fdm.tmLanguage.json"
+        }]
+    }
+}
