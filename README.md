@@ -30,13 +30,13 @@ Our DSL enables:
 ### Instructions
 1. Clone project: <br>
 ```git clone https://github.com/marijamilanovic/DSL```
-2. Open a terminal as admin and create a virtual environment (for example 'env') <br>
+2. Open a terminal as admin and create a virtual environment <br>
 ```python -m venv <envName>```
 3. Afterwards, activate created virtual environment
    - For Linux: 
-    ```source env/bin/active```
+    ```source <envName>/bin/active```
    - For Windows:
-     ```env\Scripts\activate.bat```
+     ```<envName>\Scripts\activate.bat```
 4. Change directory <br>
 ```cd DSL/menuDSL```
 5. Install Python packages from requirements file <br>
