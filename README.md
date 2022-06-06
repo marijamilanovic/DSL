@@ -62,6 +62,8 @@ password=root
 11. To deactivate virtual environment type <br>
 ```deactivate```
 
+NOTE: For highlighted syntax in VS Code (on Windows OS) please do ```npm install -g yo generator-code``` and after that copy fdm folder on location C:/Users/currentUser/.vscode/extensions.
+
 ### Example
 ![Screenshot 2022-06-06 104045](https://user-images.githubusercontent.com/57723883/172127023-aa529436-5cc6-4b95-a5f1-f4e3f38106dd.png)
 
