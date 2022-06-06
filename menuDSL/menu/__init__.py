@@ -7,7 +7,7 @@ from os.path import dirname
 __version__ = "0.1.0.dev"
 
 
-@language('menu', '*.rbt')
+@language('menu', '*.fdm')
 def menu_language():
     "menu language"
     current_dir = os.path.dirname(__file__)

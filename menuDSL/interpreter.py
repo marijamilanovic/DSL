@@ -17,10 +17,6 @@ import os
 print(join(dirname(__file__), 'templates'))
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(join(dirname(__file__), 'templates')), trim_blocks=True, lstrip_blocks=True)
 
-all_data = {}
-all_data_colnames = {}
-
-
 def get_meta_model():
     current_dir = dirname(__file__)
     my_metamodel = metamodel_from_file(join(current_dir + '\menu', 'menu.tx'), debug=False)
@@ -36,23 +32,25 @@ def export_meta_model():
     metamodel_export(my_metamodel, join(dirname(__file__), join("menu/", 'menu.dot')))
 
 def export_example_model():
-    my_model = get_model('example.rbt')
+    my_model = get_model('example.fdm')
     model_export(my_model, 'example.dot')
     return my_model
 
 def get_food_data_from_database():
-    my_model = get_model('example.rbt')
+    my_model = get_model('example.fdm')
     all_food = []
     for menu_section in my_model.menu_sections:
         for item in menu_section.items:
             if menu_section.section_type == 'Food':
                 food = find_food_data_from_database(item.type)  #lista filtrirane hrane
                 for f in food:
+                    f.image = os.path.abspath("images/"+f.image)
+                    f.image = join(f.image)
                     all_food.append(f)
     return all_food
 
 def get_drink_data_from_database():
-    my_model = get_model('example.rbt')
+    my_model = get_model('example.fdm')
     all_drinks = []
     for menu_section in my_model.menu_sections:
         for item in menu_section.items:
@@ -73,7 +71,7 @@ def find_food_data_from_database(type):
         cur.execute("SELECT * FROM food WHERE food_type=%(food_type)s", {'food_type': type})
         rows = cur.fetchall()
         for row in rows:
-            food = Food(row[0], row[1], row[2], row[3])
+            food = Food(row[0], row[1], row[2], row[3], row[4])
             find_ingredients(food)
             foods.append(food)
         
@@ -155,7 +153,7 @@ def generate(model, output_dir):
 
 def parse_table(output_folder):
     abs_image_path = os.path.abspath("images/menu_logo.png")
-    col_names = ['Name', 'Price']
+    col_names = ['Name', 'Price', 'Images']
     main_dishes = []
     soups = []
     hot_drinks = []
@@ -190,7 +188,7 @@ def parse_table(output_folder):
             house_specials.append(food)
         elif food.food_type == 'Salads':
             salads.append(food)
-        else:
+        elif food.food_type == 'Desert':
             deserts.append(food)
     
     for drink in drink_data:

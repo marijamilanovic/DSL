@@ -31,7 +31,20 @@ begin
             Font size:20;
             Font style:bold;
             Font color:orange
-        }       
+        }   
+
+        Header: "Desert";
+        Header style {
+            Font size:H3;
+            Font style:italic;
+            Font color:red
+        }
+        Filter by type: Desert;
+        Item style {
+            Font size:30;
+            Font style:italic;
+            Font color:red
+        } 
     }
 
     Section Drinks{
