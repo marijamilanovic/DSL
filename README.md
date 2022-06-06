@@ -28,22 +28,41 @@ Our DSL enables:
 - PDFkit
 
 ### Instructions
-1. Open a terminal as admin and create a virtual environment <br>
+1. Clone project: <br>
+```git clone https://github.com/marijamilanovic/DSL```
+2. Open a terminal as admin and create a virtual environment (for example 'env') <br>
 ```python -m venv <envName>```
-2. Afterwards, activate created virtual environment
+3. Afterwards, activate created virtual environment
    - For Linux: 
     ```source env/bin/active```
    - For Windows:
      ```env\Scripts\activate.bat```
-3. Change directory <br>
+4. Change directory <br>
 ```cd DSL/menuDSL```
-5. Generate html and pdf <br>
+5. Install Python packages from requirements file
+```pip install -r requirements.txt```
+6. You can check registered languages and generators
+``` textx list-languages```
+``` textx list-generators```
+7. Create database.ini file:
+```
+[postgresql]
+host=127.0.0.1
+database=jsd
+user=postgres
+password=root
+```
+and in PostgreSQL create database with name 'jsd'
+8. Run script
+``` python connect.py```
+9. Generate html and pdf <br>
 ```textx generate example.fdm --target html+pdf```
-6. To deactivate virtual environment type <br>
+10. To deactivate virtual environment type <br>
 ```deactivate```
 
 ### Example
-![menu1](https://user-images.githubusercontent.com/57723883/169604697-a259adcd-3f0b-4b75-b2dd-aa9cc614d70b.png)
+![Screenshot 2022-06-06 104045](https://user-images.githubusercontent.com/57723883/172127023-aa529436-5cc6-4b95-a5f1-f4e3f38106dd.png)
+
 
 
 
