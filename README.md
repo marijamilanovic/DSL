@@ -39,12 +39,12 @@ Our DSL enables:
      ```env\Scripts\activate.bat```
 4. Change directory <br>
 ```cd DSL/menuDSL```
-5. Install Python packages from requirements file
+5. Install Python packages from requirements file <br>
 ```pip install -r requirements.txt```
-6. You can check registered languages and generators
-``` textx list-languages```
+6. You can check registered languages and generators <br>
+``` textx list-languages``` <br>
 ``` textx list-generators```
-7. Create database.ini file:
+7. Create database.ini file: <br>
 ```
 [postgresql]
 host=127.0.0.1
@@ -52,8 +52,8 @@ database=jsd
 user=postgres
 password=root
 ```
-and in PostgreSQL create database with name 'jsd'
-8. Run script
+and in PostgreSQL create database with name 'jsd' <br>
+8. Run script <br>
 ``` python connect.py```
 9. Generate html and pdf <br>
 ```textx generate example.fdm --target html+pdf```
