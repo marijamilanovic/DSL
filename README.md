@@ -42,7 +42,7 @@ Our DSL enables:
 5. Install Python packages from requirements file <br>
 ```pip install -r requirements.txt```
 6. Register language and generator with command: <br>
-```pip install -e```
+```pip install -e . ```
 7. You can check registered languages and generators <br>
 ``` textx list-languages``` <br>
 ``` textx list-generators```
