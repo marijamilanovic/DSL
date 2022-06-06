@@ -44,7 +44,7 @@ Our DSL enables:
 6. You can check registered languages and generators <br>
 ``` textx list-languages``` <br>
 ``` textx list-generators```
-7. Create database.ini file: <br>
+7. Create database.ini file (also in PostgreSQL create database with name 'jsd'): <br>
 ```
 [postgresql]
 host=127.0.0.1
@@ -52,11 +52,11 @@ database=jsd
 user=postgres
 password=root
 ```
-and in PostgreSQL create database with name 'jsd' <br>
+
 8. Run script <br>
-``` python connect.py```
+``` python connect.py``` <br>
 9. Generate html and pdf <br>
-```textx generate example.fdm --target html+pdf```
+```textx generate example.fdm --target html+pdf``` <br>
 10. To deactivate virtual environment type <br>
 ```deactivate```
 
