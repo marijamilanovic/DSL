@@ -41,10 +41,12 @@ Our DSL enables:
 ```cd DSL/menuDSL```
 5. Install Python packages from requirements file <br>
 ```pip install -r requirements.txt```
-6. You can check registered languages and generators <br>
+6. Register language and generator with command: <br>
+```pip install -e```
+7. You can check registered languages and generators <br>
 ``` textx list-languages``` <br>
 ``` textx list-generators```
-7. Create database.ini file (also in PostgreSQL create database with name 'jsd'): <br>
+8. Create database.ini file (also in PostgreSQL create database with name 'jsd'): <br>
 ```
 [postgresql]
 host=127.0.0.1
@@ -53,11 +55,11 @@ user=postgres
 password=root
 ```
 
-8. Run script <br>
+9. Run script <br>
 ``` python connect.py``` <br>
-9. Generate html and pdf <br>
+10. Generate html and pdf <br>
 ```textx generate example.fdm --target html+pdf``` <br>
-10. To deactivate virtual environment type <br>
+11. To deactivate virtual environment type <br>
 ```deactivate```
 
 ### Example
