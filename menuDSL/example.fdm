@@ -1,0 +1,64 @@
+begin
+    Menu color: powderblue;
+    Title:'MyRestaurant';
+    Title style {
+            Font size:H1;
+            Font style:italic;
+            Font color:black
+        }
+    Section Food{
+        Header: "MainDishes";
+        Header style {
+            Font size:H4;
+            Font style:italic;
+            Font color:red
+        }
+        Filter by type: MainDishes;
+        Item style {
+            Font size:10;
+            Font style:italic;
+            Font color:blue
+        }
+        
+        Header: "Soups";
+        Header style {
+            Font size:H2;
+            Font style:bold;
+            Font color:blue
+        }
+        Filter by type: Soups;
+        Item style {
+            Font size:20;
+            Font style:bold;
+            Font color:orange
+        }   
+
+        Header: "Desert";
+        Header style {
+            Font size:H3;
+            Font style:italic;
+            Font color:red
+        }
+        Filter by type: Desert;
+        Item style {
+            Font size:30;
+            Font style:italic;
+            Font color:red
+        } 
+    }
+
+    Section Drinks{
+        Header: "HotDrinks";
+        Header style {
+            Font size:H3;
+            Font style:italic;
+            Font color:green
+        }
+        Filter by type: HotDrinks;
+        Item style {
+            Font size:15;
+            Font style:bold;
+            Font color:red
+        }
+    }
+end

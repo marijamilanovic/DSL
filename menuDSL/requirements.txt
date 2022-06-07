@@ -1,0 +1,15 @@
+Arpeggio==1.10.2
+click==8.0.3
+colorama==0.4.4
+graphviz==0.19.1
+httplib2==0.20.4
+Jinja2==3.0.3
+MarkupSafe==2.0.1
+pdfkit==1.0.0
+psycopg2==2.9.3
+pyparsing==3.0.8
+setuptools==58.1.0
+textX==2.3.0
+textX-dev==0.1.5
+textX-jinja==0.3.0
+textx-lang-questionnaire==0.2.0

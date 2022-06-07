@@ -1,0 +1,86 @@
+Program:
+    'begin'
+	  (menu_color = MenuColor)?
+	  title = Title
+      menu_sections*=MenuSection    // *= operator means zero or more matches.
+      // commands will be
+      // a list of command objects
+    'end'
+;
+
+Title:
+	'Title:' name=STRING ';'
+	'Title style' '{'
+		title_style=Style
+	'}'
+;
+
+MenuColor:
+	'Menu color:' color = Color ';'
+;
+
+MenuSection:
+	'Section' section_type = SectionType '{'
+    	items+=Item
+	'}'
+;
+
+SectionType:
+	'Food' | 'Drinks'
+;
+
+Item:
+    header=Header
+	'Filter by type:' type = Type ';'
+	'Item style' '{'
+		item_style=StyleItem
+	'}'
+;
+
+Type:
+	DishType | DrinkType
+;
+
+Header:
+	'Header:' name=STRING ';'
+	'Header style' '{'
+		header_style=Style
+	'}'
+;
+
+Size:
+	'H1' | 'H2' | 'H3' | 'H4' | 'H5' | 'H6'
+;
+
+Color:
+	'black' | 'blue' | 'brown' | 'green' | 'grey' | 'orange' | 'pink' | 'purple' |'red' | 'white' |'yellow' | 'powderblue'
+;
+
+Style:
+    'Font size:' (font_size=Size)? ';'
+	'Font style:' (font_style=FontStyle)? ';'
+	'Font color:' (color=Color)?
+;
+
+StyleItem:
+    'Font size:' (font_size=INT)? ';'		// in pixels
+	'Font style:' (font_style=FontStyle)? ';'
+	'Font color:' (color=Color)?
+;
+
+FontStyle:
+	'bold' | 'italic'
+;
+
+DishType:
+	'MainDishes' | 'Appetizers' | 'HouseSpecials' | 'Soups' | 'Salads' | 'Desert' | 'FastingDishes'
+;
+
+DrinkType:
+	'Alchocol' | 'Carbonated' | 'Juices' | 'HotDrinks'
+;
+
+// special rule for comments.
+Comment:
+    /\/\/.*$/
+;
