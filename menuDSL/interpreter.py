@@ -136,6 +136,7 @@ def find_ingredients(food):
     return food_ingredients
 
 def generate(model, output_dir):
+    create_folder()
     print('Generating html...')
     output_folder = open(output_dir + "/generated/output.html", 'w', encoding="utf-8")
 
